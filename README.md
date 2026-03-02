@@ -4,6 +4,6 @@ Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applicatio
 
 # To do as soon as possible:
 - Individual work
-- Coding part
+- RSS
 - Twin cities Website
 - SQL Script
