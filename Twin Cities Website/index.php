@@ -47,7 +47,7 @@ $pagetitle = "London & New York: Twin Cities";
     <div class="city-selector">
         <?php foreach ($cities as $city): ?>
             <button class="city-btn" data-city-id="<?php echo $city['City_ID']; ?>">
-                <?php eho htmlspecialchars($city['Name']); ?>
+                <?php echo htmlspecialchars($city['Name']); ?>
             </button>
         <php endforeach; ?>
     </div>
@@ -85,4 +85,5 @@ $pagetitle = "London & New York: Twin Cities";
         })
     </script>
 </body>
+
 </html>
