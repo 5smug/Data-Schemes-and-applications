@@ -23,7 +23,6 @@ $pagetitle = "London & New York: Twin Cities";
     <!-- Fonts and others -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title is shown above -->
     <title><?php echo $pageTitle; ?></title>
     <!-- Css -->
     <link rel="stylesheet" href="assets/style.css">

@@ -2,7 +2,6 @@ let londonMap, nycMap;
 let markers = [];
 
 function initializeMaps() {
-function initializeMaps() {
     if (document.getElementById('london-map')) {
         londonMap = L.map('london-map').setView([51.5074, -0.1278], 12);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -54,6 +53,7 @@ function loadPlacesForMap(cityId, map) {
     
     if (cityId == 1) {
         places = [
+            // All these locations are taken randomly from other forums and websites. Their lat and lon come with them as well.
             { name: 'London Eye', lat: 51.503324, lon: -0.119522, desc: 'Giant Ferris wheel on the South Bank' },
             { name: 'Big Ben', lat: 51.500729, lon: -0.124625, desc: 'Great Clock of Westminster' },
             { name: 'Tower of London', lat: 51.508112, lon: -0.076067, desc: 'Historic castle and former prison' },
@@ -63,6 +63,7 @@ function loadPlacesForMap(cityId, map) {
         ];
     } else {
         places = [
+            // All these locations are taken randomly from other forums and websites. Their lat and lon come with them as well.
             { name: 'Statue of Liberty', lat: 40.689247, lon: -74.044502, desc: 'Iconic national monument' },
             { name: 'Empire State Building', lat: 40.748817, lon: -73.985656, desc: 'Famous skyscraper with observatory' },
             { name: 'Central Park', lat: 40.782865, lon: -73.966545, desc: 'Urban park with lakes and trails' },
