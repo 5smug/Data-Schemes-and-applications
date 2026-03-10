@@ -69,7 +69,7 @@ VALUES
 ('Liberty Island', 'NY 10004', 'Statue of Liberty', -74.0445, 40.6892, 'Iconic symbol of freedom and democracy', 2),
 ('Central Park', 'NY 10024', 'Central Park', -73.9665, 40.7812, 'Urban park in Manhattan', 2),
 ('350 5th Ave', 'NY 10118', 'Empire State Building', -73.9857, 40.7484, 'Famous 102-story skyscraper', 2),
-('20 W 34th St', 'NY 10001', 'Empire State Building Observation Deck', -73.9846, 40.7483, 'Observation deck with city views', 2),
+('Gansevoort Street', 'NY 10014', 'The High Line', -74.0067, 40.7479, 'Elevated linear park built on a historic freight rail line', 2);
 ('West 34th Street', 'NY 10001', 'Madison Square Garden', -73.9936, 40.7505, 'Famous sports and entertainment venue', 2),
 ('63rd Street', 'NY 10065', 'The Metropolitan Museum of Art', -73.9626, 40.7794, 'Largest art museum in the US', 2);
 
