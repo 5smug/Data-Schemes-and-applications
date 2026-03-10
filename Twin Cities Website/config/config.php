@@ -1,12 +1,12 @@
 <?php
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'twin_cities');
+define('DB_NAME', 'tuesday_assigment');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
-define('WEATHER_API_KEY', 'API, we need to create it, in lesson, to do later.');
-define('WEATHER_API_URL', 'https://api.openweathermap.org/data/2.5/weather');
+define('WEATHER_API_KEY', 'f53a0c93df620d12354925b7bf0313c0'); // Do not change
+define('WEATHER_API_URL', 'https://api.openweathermap.org/data/2.5/weather'); 
 define('MAP_PROVIDER', 'openstreetmap');
 
 define('APP_NAME', 'Twin Cities');
@@ -21,5 +21,20 @@ date_default_timezone_set('Europe/London');
 define('BASE_PATH', dirname(__DIR__) . '/');
 define('INCLUDES_PATH', BASE_PATH . 'includes/');
 define('ASSETS_PATH', BASE_PATH . 'assets/');
+
+try {
+    $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ];
+
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+
+} catch (PDOException $e) {
+    error_log("Database Connection failed: " . $e->getMessage());
+    die("Try again later");
+}
 
 ?>

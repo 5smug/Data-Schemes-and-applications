@@ -1,88 +1,43 @@
 <?php
-session_start();
 
-required_once 'config/config.php';
-required_once 'includes/db_connect.php';
-required_once 'includes/functions.php';
+require_once 'includes/db_connect.php'
 
-
-try {
-    $stmt = $pdo->query("SELECT * FROM city ORDER BY Name")
-    $cities = $stmt->fetchall(PDO::FETCH_ASSOC)
-} catch (PDOException $e) {
-    error_log("Database error: " . $e.->getMessage());
-    $cities - [];
-}
-
-// Below is going to be title of the page and just usual HTML
-$pagetitle = "London & New York: Twin Cities";
+$cities = $pdo->query("SELECT City_ID, Name, Country, Population, Currency FROM city") -> fetchall();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <!-- Fonts and others -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
-    <!-- Css -->
+    <title>Twin Cities Assigment</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <!-- Js -->
-    <script src="assets/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.php">🏢 Twin Cities</a>
+            <a href="index.php" class="logo">Twin Cities</a>
             <ul class="nav-menu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="cities.php">Cities</a></li>
-                <li><a href="rss/feed.php">RSS Feed</a></li>
+                <li><a href="london.php">London</a></li>
+                <li><a href="nyc.php">New York</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="city-selector">
-        <?php foreach ($cities as $city): ?>
-            <button class="city-btn" data-city-id="<?php echo $city['City_ID']; ?>">
-                <?php echo htmlspecialchars($city['Name']); ?>
-            </button>
-        <php endforeach; ?>
-    </div>
-
-    <section class="maps-section">
-        <h2>City maps</h2>
-        <div class="map-container" id="london-map"></div>
-        <div class="map-container" id="nyc-map"></div>
-    </section>
-
-    <section class="weather-section">
-        <h2>Weather</h2>
-        <div class="map-container" id="london-weather"></div>
-        <div class="map-container" id="nyc-weather"></div>
-    </section>
-
-    <section class="places-preview">
-        <h2>Featured Places of Interest</h2>
-        <div class="places-grid" id="featured-places"></div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer">
-            <p>&copy <?php echo date('Y'); ?> Twin Cities Project</p>
+    <main class="container">
+        <h1>Twin Cities: London & New York</h1>
+        
+        <div class="city-cards">
+            <?php foreach ($cities as $city): ?>
+            <div class="city-card">
+                <h2><?= htmlspecialchars($city['Name']) ?></h2>
+                <p><strong>Country:</strong> <?= htmlspecialchars($city['Country']) ?></p>
+                <p><strong>Population:</strong> <?= number_format($city['Population']) ?></p>
+                <p><strong>Currency:</strong> <?= htmlspecialchars($city['Currency']) ?></p>
+                <a href="<?= strtolower($city['Name']) == 'london' ? 'london.php' : 'nyc.php' ?>" class="btn">Explore</a>
+            </div>
+            <?php endforeach; ?>
         </div>
-    </footer>
-
-    <script>
-        const citiesData = <?php echo json_encode($cities); ?>;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeMaps();
-            loadWeather();
-            loadFeaturedPlaces();
-        })
-    </script>
+    </main>
 </body>
-
 </html>
