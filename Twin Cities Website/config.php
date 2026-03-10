@@ -12,11 +12,10 @@ define('MAP_PROVIDER', 'openstreetmap');
 define('APP_NAME', 'Twin Cities');
 define('APP_VERSION', '1.0.0');
 define('APP_URL', 'http://localhost/twin-cities-website');
-define('DEFAULT_CITY_ID', 1);
-define('DEFAULT_CITY_NAME', 'London');
-define('DEFAULT_LAT', 51.5074);
-define('DEFAULT_LON', -0.1278);
-date_default_timezone_set('Europe/London');
+
+define('FLICKR_API_KEY', 'your_api_key_here');
+define('FLICKR_API_SECRET', 'your_api_secret_here');
+define('FLICKR_CACHE_EXPIRY', 86400); // 24 hours in seconds
 
 define('BASE_PATH', dirname(__DIR__) . '/');
 define('INCLUDES_PATH', BASE_PATH . 'includes/');

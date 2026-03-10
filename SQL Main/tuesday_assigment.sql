@@ -1,19 +1,18 @@
 CREATE DATABASE IF NOT EXISTS tuesday_assigment;
 USE tuesday_assigment;
 
--- City table
 CREATE TABLE city (
     City_ID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(45) NOT NULL,
     Country VARCHAR(45) NOT NULL,
     Population INT,
-    Weather VARCHAR(100),  -- Static weather description
+    Weather VARCHAR(100),
     Currency VARCHAR(45),
-    Lon DECIMAL(9,6),      -- Longitude for maps
-    Lat DECIMAL(9,6)       -- Latitude for maps
+    Lon DECIMAL(9,6),
+    Lat DECIMAL(9,6)
+    -- Both Lon & Lat are used for the map
 );
 
--- Place of Interest table
 CREATE TABLE place_of_interest (
     Place_of_InterestID INT PRIMARY KEY AUTO_INCREMENT,
     StreetName VARCHAR(45),
@@ -26,7 +25,6 @@ CREATE TABLE place_of_interest (
     FOREIGN KEY (City_ID) REFERENCES city(City_ID) ON DELETE CASCADE
 );
 
--- News table
 CREATE TABLE news (
     NewsID INT PRIMARY KEY AUTO_INCREMENT,
     Headline VARCHAR(200),
@@ -37,21 +35,20 @@ CREATE TABLE news (
     FOREIGN KEY (City_ID) REFERENCES city(City_ID) ON DELETE CASCADE
 );
 
--- Flickr photos cache table (for Person B's widget)
 CREATE TABLE flickr_photos (
     PhotoID INT PRIMARY KEY AUTO_INCREMENT,
     PlaceName VARCHAR(100),
-    FlickrID VARCHAR(100),  -- Stores Flickr photo ID
-    PhotoURL VARCHAR(255),   -- Store the URL to avoid repeated API calls
+    FlickrID VARCHAR(100), 
+    PhotoURL VARCHAR(255),  
     LastUpdated DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert London data (City_ID = 1)
+-- Insert London data
 INSERT INTO city (Name, Country, Population, Weather, Currency, Lon, Lat)
 VALUES 
 ('London', 'United Kingdom', 8982000, 'Partly cloudy', 'Pounds (£)', -0.1278, 51.5074);
 
--- Insert NYC data (City_ID = 2)
+-- Insert NYC data
 INSERT INTO city (Name, Country, Population, Weather, Currency, Lon, Lat)
 VALUES 
 ('New York City', 'United States', 8419000, 'Sunny', 'Dollars ($)', -74.0060, 40.7128);

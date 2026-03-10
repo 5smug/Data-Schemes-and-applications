@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/db_connect.php';
+include 'includes/db_connect.php';
 
 // Get NYC data (City_ID = 2)
 $stmt = $pdo->prepare("SELECT * FROM city WHERE City_ID = 2");

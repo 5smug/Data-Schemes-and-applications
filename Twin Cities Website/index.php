@@ -1,6 +1,5 @@
 <?php
-
-require_once 'includes/db_connect.php'
+include_once 'includes/db_connect.php'
 
 $cities = $pdo->query("SELECT City_ID, Name, Country, Population, Currency FROM city") -> fetchall();
 ?>

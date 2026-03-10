@@ -7,8 +7,8 @@
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     line-height: 1.6; 
-    background-color: #121212;  /* Dark background */
-    color: #FFFFFF;  /* White text */
+    background-color: #121212;
+    color: #FFFFFF;
 }
 
 .container { 
@@ -17,12 +17,12 @@ body {
     margin: 0 auto; 
 }
 
-/* Navigation - London Underground (Tube) Blue */
+
 .navbar { 
-    background: #1E3A6F;  /* Deep London Underground blue */
+    background: #1E3A6F;
     color: white; 
     padding: 1rem 0; 
-    border-bottom: 3px solid #D52B1E;  /* London bus red accent */
+    border-bottom: 3px solid #D52B1E; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .navbar a:hover {
-    background: #D52B1E;  /* London bus red on hover */
+    background: #D52B1E;
     border-radius: 4px;
 }
 
@@ -56,7 +56,6 @@ body {
     border-radius: 4px;
 }
 
-/* City Cards (for index.php) */
 .city-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -65,7 +64,7 @@ body {
 }
 
 .city-card {
-    background: #1E1E1E;  /* Slightly lighter than background */
+    background: #1E1E1E;
     border: 1px solid #333;
     border-radius: 10px;
     padding: 2rem;
@@ -74,17 +73,16 @@ body {
 
 .city-card:hover {
     transform: translateY(-5px);
-    border-color: #D52B1E;  /* Red border on hover */
+    border-color: #D52B1E;
 }
 
 .city-card h2 {
-    color: #FFD700;  /* Gold (from Royal crest) */
+    color: #FFD700;
     margin-bottom: 1rem;
     border-bottom: 2px solid #D52B1E;
     padding-bottom: 0.5rem;
 }
 
-/* Map containers */
 .map-container { 
     height: 400px; 
     margin: 2rem 0; 
@@ -94,7 +92,6 @@ body {
     z-index: 1;
 }
 
-/* Weather section */
 .weather-section {
     margin: 2rem 0;
 }
@@ -104,18 +101,18 @@ body {
 }
 
 .weather-card { 
-    background: linear-gradient(135deg, #1E3A6F, #0A1A33);  /* Blue gradient (Tube inspired) */
+    background: linear-gradient(135deg, #1E3A6F, #0A1A33);
     color: white; 
     padding: 1.5rem; 
     border-radius: 10px; 
-    border-left: 5px solid #D52B1E;  /* Red accent */
+    border-left: 5px solid #D52B1E;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .weather-temp { 
     font-size: 3rem; 
     font-weight: bold; 
-    color: #FFD700;  /* Gold */
+    color: #FFD700; 
 }
 
 .weather-condition {
@@ -133,13 +130,12 @@ body {
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Places grid */
 .places-section {
     margin: 3rem 0;
 }
 
 .places-section h2 {
-    color: #FFD700;  /* Gold */
+    color: #FFD700;  
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
@@ -152,7 +148,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #D52B1E;  /* Red underline */
+    background: #D52B1E; 
 }
 
 .places-grid { 
@@ -174,7 +170,7 @@ body {
 .place-card:hover {
     border-color: #D52B1E;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(213, 43, 30, 0.2);  /* Red glow */
+    box-shadow: 0 8px 20px rgba(213, 43, 30, 0.2); 
 }
 
 .place-card h3 {
@@ -193,7 +189,7 @@ body {
     color: #FFD700;
 }
 
-/* Place details (expandable section) */
+/* Expandable section */
 .place-details {
     background: #252525;
     padding: 1rem;
@@ -215,7 +211,7 @@ body {
 .btn { 
     display: inline-block; 
     padding: 0.8rem 1.5rem; 
-    background: #D52B1E;  /* London bus red */
+    background: #D52B1E; 
     color: white; 
     text-decoration: none; 
     border-radius: 5px; 
@@ -226,7 +222,7 @@ body {
 }
 
 .btn:hover {
-    background: #A52016;  /* Darker red */
+    background: #A52016;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(213, 43, 30, 0.3);
 }
@@ -237,7 +233,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    color: #FFD700;  /* Gold for main heading */
+    color: #FFD700; 
     margin: 2rem 0;
     position: relative;
     display: inline-block;
@@ -253,7 +249,7 @@ h1:after {
     background: linear-gradient(90deg, #D52B1E, #1E3A6F, #FFD700);
 }
 
-/* Map popup styling (for Leaflet) */
+/* For leaflet, do not change */
 .leaflet-popup-content-wrapper {
     background: #1E1E1E;
     color: white;
@@ -269,7 +265,7 @@ h1:after {
     margin-bottom: 0.5rem;
 }
 
-/* RSS link special styling */
+/* RSS link */
 a[href*="feed.php"] {
     background: #FFD700;
     color: #121212 !important;
@@ -298,7 +294,7 @@ a[href*="feed.php"]:hover {
     }
 }
 
-/* Scrollbar (optional, but looks nice) */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }

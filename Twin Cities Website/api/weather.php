@@ -1,9 +1,9 @@
 <?php
-require_once '../config/config.php';
+include '../config.php';
 header('Content-Type: application/json');
 
 function getWeather($city, $countryCode) {
-    if (WEATHER_API_KEY == 'YOUR_API_KEY_HERE' || WEATHER_API_KEY == '') {
+    if (WEATHER_API_KEY == 'f53a0c93df620d12354925b7bf0313c0' || WEATHER_API_KEY == '') {
         return [
             'city' => $city,
             'temp' => $city == 'London' ? '15°C' : '18°C',
