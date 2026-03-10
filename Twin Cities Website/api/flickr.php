@@ -7,7 +7,6 @@ if (isset($_GET['js']) && $_GET['js'] == '1') {
     header('Content-Type: application/javascript');
 
     echo '// Flickr widget loaded';
-    
     exit;
 }
 
