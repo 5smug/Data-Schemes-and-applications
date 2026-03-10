@@ -5,7 +5,7 @@ Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applicatio
 # To do as soon as possible:
 - Individual work
 - RSS
-- Twin cities Website
+- Twin cities Website (almost done, needs testing!)
 
 
 # Things to pontetially do:
