@@ -1,7 +1,7 @@
 <?php
+
 include_once '../config.php';
 
-// If JavaScript is requested
 if (isset($_GET['js']) && $_GET['js'] == '1') {
     header('Content-Type: application/javascript');
     // The function is now in main.js, so we just output a comment
