@@ -302,8 +302,7 @@ a[href*="feed.php"]:hover {
     }
 }
 
-/* Flickr */
-/* Flickr Photo Widget */
+/* The style below is made just for flickr */
 .flickr-loading {
     color: #888;
     font-style: italic;
@@ -330,27 +329,13 @@ a[href*="feed.php"]:hover {
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
     border: 1px solid #333;
-}
-
-.flickr-thumb:hover {
-    transform: scale(1.05);
-    border-color: #D52B1E;
 }
 
 .flickr-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.flickr-note {
-    font-size: 0.8rem;
-    color: #888;
-    margin: 5px 0 0;
-    text-align: right;
 }
 
 @media (max-width: 768px) {

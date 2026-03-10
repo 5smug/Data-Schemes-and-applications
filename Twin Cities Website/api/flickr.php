@@ -1,47 +1,15 @@
 <?php
-
 include_once '../config.php';
 
+// If JavaScript is requested
 if (isset($_GET['js']) && $_GET['js'] == '1') {
     header('Content-Type: application/javascript');
-    
-    function loadFlickrPhotos(placeName, containerId) {
-        var container = document.getElementById(containerId);
-        if (!container) return;
-        
-        container.innerHTML = '<div class="flickr-loading">📸 Loading photos...</div>';
-        
-        fetch('api/flickr.php?place=' + encodeURIComponent(placeName))
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    container.innerHTML = '<div class="flickr-error">No photos found</div>';
-                    return;
-                }
-                
-                if (data.photos && data.photos.length > 0) {
-                    var html = '<div class="flickr-grid">';
-                    
-                    for (var i = 0; i < 4; i++) {
-                        if (data.photos[i]) {
-                            var photo = data.photos[i];
-                            var imgUrl = photo.url_sq;
-                            if (!imgUrl) imgUrl = photo.url_t;
-                            
-                            html += '<div class="flickr-thumb">';
-                            html += '<img src="' + imgUrl + '" alt="' + photo.title + '">';
-                            html += '</div>';
-                        }
-                    }
-                    
-                    html += '</div>';
-                    container.innerHTML = html;
-                }
-            });
-    }
+    // The function is now in main.js, so we just output a comment
+    echo '// Flickr widget loaded';
     exit;
 }
 
+// Return JSON data
 header('Content-Type: application/json');
 
 $place = isset($_GET['place']) ? $_GET['place'] : '';
@@ -86,5 +54,4 @@ echo json_encode([
     'source' => 'sample',
     'photos' => $photos
 ]);
-
 ?>

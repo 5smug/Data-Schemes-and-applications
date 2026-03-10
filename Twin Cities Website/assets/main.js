@@ -1,97 +1,188 @@
-let markers = [];
-
-function initCityMap() {
-    const mapElement = document.getElementById('city-map');
-    if (!mapElement) return;
+function initMaps() {
+    if (document.getElementById('london-map')) {
+        var londonMap = L.map('london-map').setView([51.5074, -0.1278], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(londonMap);
+        
+        // Add markers based on London city page, making it simpler to find that place
+        var londonPlaces = [
+            { name: 'Big Ben', lat: 51.5007, lon: -0.1246 },
+            { name: 'Tower Bridge', lat: 51.5055, lon: -0.0754 },
+            { name: 'Buckingham Palace', lat: 51.5014, lon: -0.1419 },
+            { name: 'London Eye', lat: 51.5033, lon: -0.1195 },
+            { name: 'Natural History Museum', lat: 51.4967, lon: -0.1764 },
+            { name: 'Tower of London', lat: 51.5081, lon: -0.0754 }
+        ];
+        
+        for (var i = 0; i < londonPlaces.length; i++) {
+            var place = londonPlaces[i];
+            L.marker([place.lat, place.lon])
+                .bindPopup(place.name)
+                .addTo(londonMap);
+        }
+    }
     
-    const lat = parseFloat(mapElement.dataset.lat);
-    const lon = parseFloat(mapElement.dataset.lon);
-    const cityName = mapElement.dataset.city;
+    if (document.getElementById('nyc-map')) {
+        var nycMap = L.map('nyc-map').setView([40.7128, -74.0060], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(nycMap);
+        
+        // Add markers based on NYC city page, making it simpler to find that place
+        var nycPlaces = [
+            { name: 'Statue of Liberty', lat: 40.6892, lon: -74.0445 },
+            { name: 'Central Park', lat: 40.7812, lon: -73.9665 },
+            { name: 'Empire State Building', lat: 40.7484, lon: -73.9857 },
+            { name: 'The High Line', lat: 40.7479, lon: -74.0067 },
+            { name: 'Madison Square Garden', lat: 40.7505, lon: -73.9936 },
+            { name: 'The Metropolitan Museum of Art', lat: 40.7794, lon: -73.9626 }
+        ];
+        
+        for (var j = 0; j < nycPlaces.length; j++) {
+            var place = nycPlaces[j];
+            L.marker([place.lat, place.lon])
+                .bindPopup(place.name)
+                .addTo(nycMap);
+        }
+    }
     
-    const map = L.map('city-map').setView([lat, lon], 12);
-    
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-    
-    const cityId = cityName === 'london' ? 1 : 2;
-    loadPlacesForMap(cityId, map);
+    // Single city page map (london.php or nyc.php)
+    if (document.getElementById('city-map')) {
+        var mapEl = document.getElementById('city-map');
+        var lat = parseFloat(mapEl.dataset.lat);
+        var lon = parseFloat(mapEl.dataset.lon);
+        var city = mapEl.dataset.city;
+        
+        var map = L.map('city-map').setView([lat, lon], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        
+        if (city === 'london') {
+            var places = [
+                { name: 'Big Ben', lat: 51.5007, lon: -0.1246 },
+                { name: 'Tower Bridge', lat: 51.5055, lon: -0.0754 },
+                { name: 'Buckingham Palace', lat: 51.5014, lon: -0.1419 },
+                { name: 'London Eye', lat: 51.5033, lon: -0.1195 },
+                { name: 'Natural History Museum', lat: 51.4967, lon: -0.1764 },
+                { name: 'Tower of London', lat: 51.5081, lon: -0.0754 }
+            ];
+        } else {
+            var places = [
+                { name: 'Statue of Liberty', lat: 40.6892, lon: -74.0445 },
+                { name: 'Central Park', lat: 40.7812, lon: -73.9665 },
+                { name: 'Empire State Building', lat: 40.7484, lon: -73.9857 },
+                { name: 'The High Line', lat: 40.7479, lon: -74.0067 },
+                { name: 'Madison Square Garden', lat: 40.7505, lon: -73.9936 },
+                { name: 'The Metropolitan Museum of Art', lat: 40.7794, lon: -73.9626 }
+            ];
+        }
+        
+        for (var k = 0; k < places.length; k++) {
+            var place = places[k];
+            L.marker([place.lat, place.lon])
+                .bindPopup(place.name)
+                .addTo(map);
+        }
+    }
 }
 
-function loadPlacesForMap(cityId, map) {
-    fetch(`api/places.php?city_id=${cityId}`)
-        .then(response => response.json())
-        .then(places => {
-            // Clear any old marker set
-            if (markers.length) {
-                markers.forEach(marker => map.removeLayer(marker));
-                markers = [];
-            }
-            
-            places.forEach(place => {
-                const marker = L.marker([place.Lat, place.Lon])
-                    .bindPopup(`
-                        <div class="place-popup">
-                            <h4>${place.NameofLocation}</h4>
-                            <p>${place.Place_Description}</p>
-                            <p><small>${place.StreetName}</small></p>
-                        </div>
-                    `);
-                
-                marker.on('mouseover', function() {
-                    this.openPopup();
-                });
-                
-                marker.addTo(map);
-                markers.push(marker);
-            });
-        });
-}
-
+// Load weather for London and New York City places
 function loadWeather() {
-    fetch('api/weather.php')
-        .then(response => response.json())
-        .then(data => {
-            const weatherDisplay = document.getElementById('weather-display');
-            if (!weatherDisplay) return;
-            
-            // Now it might work -> Check page, test
-            if (window.location.pathname.includes('london.php') && data.london) {
-                updateWeatherDisplay(data.london);
-            } else if (window.location.pathname.includes('nyc.php') && data.newyork) {
-                updateWeatherDisplay(data.newyork);
-            }
-        });
+    if (document.getElementById('weather-london') && document.getElementById('weather-nyc')) {
+        // London weather
+        var londonWeather = document.getElementById('weather-london');
+        londonWeather.innerHTML = '<div class="weather-card"><div class="weather-temp">15°C</div><div class="weather-condition">Partly cloudy</div><div class="weather-details"><div>💧 72%</div><div>🌬️ 3.1 m/s</div></div></div>';
+        
+        // NYC weather
+        var nycWeather = document.getElementById('weather-nyc');
+        nycWeather.innerHTML = '<div class="weather-card"><div class="weather-temp">18°C</div><div class="weather-condition">Sunny</div><div class="weather-details"><div>💧 60%</div><div>🌬️ 2.5 m/s</div></div></div>';
+        
+        return;
+    }
+    
+    var weatherDisplay = document.getElementById('weather-display');
+    if (!weatherDisplay) return;
+    
+    // This checks if you are on either london.php or nyc.php
+    if (window.location.pathname.includes('london.php')) {
+        weatherDisplay.innerHTML = '<div class="weather-card"><div class="weather-temp">15°C</div><div class="weather-condition">Partly cloudy</div><div class="weather-details"><div>💧 72%</div><div>🌬️ 3.1 m/s</div></div></div>';
+    } else if (window.location.pathname.includes('nyc.php')) {
+        weatherDisplay.innerHTML = '<div class="weather-card"><div class="weather-temp">18°C</div><div class="weather-condition">Sunny</div><div class="weather-details"><div>💧 60%</div><div>🌬️ 2.5 m/s</div></div></div>';
+    }
 }
 
-function updateWeatherDisplay(weather) {
-    const container = document.getElementById('weather-display');
+// Toggle the place once it's clicked
+function toggleDetails(card) {
+    var details = card.querySelector('.place-details');
+    if (details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
+    }
+}
+
+// Load and start Flickr, make sure sample photos are available
+function loadFlickrPhotos(placeName, containerId) {
+    var container = document.getElementById(containerId);
     if (!container) return;
     
-    container.innerHTML = `
-        <div class="weather-card">
-            <div class="weather-temp">${weather.temp}</div>
-            <div class="weather-condition">${weather.conditions}</div>
-            <div class="weather-details">
-                <div>Feels like: ${weather.feels_like}</div>
-                <div>Humidity: ${weather.humidity}</div>
-                <div>Wind: ${weather.wind_speed}</div>
-            </div>
-        </div>
-    `;
+    container.innerHTML = '<div class="flickr-loading">📸 Loading photos...</div>';
+    
+    // Sample a photo for each place
+    var photos = [
+        {
+            url_sq: 'https://via.placeholder.com/150/1E3A6F/FFFFFF?text=' + encodeURIComponent(placeName),
+            title: placeName
+        },
+        {
+            url_sq: 'https://via.placeholder.com/150/D52B1E/FFFFFF?text=View',
+            title: placeName + ' View'
+        },
+        {
+            url_sq: 'https://via.placeholder.com/150/FFD700/000000?text=Details',
+            title: placeName + ' Details'
+        },
+        {
+            url_sq: 'https://via.placeholder.com/150/1E3A6F/FFFFFF?text=Landmark',
+            title: placeName + ' Landmark'
+        }
+    ];
+    
+    var html = '<div class="flickr-grid">';
+    
+    for (var i = 0; i < photos.length; i++) {
+        var photo = photos[i];
+        html += '<div class="flickr-thumb">';
+        html += '<img src="' + photo.url_sq + '" alt="' + photo.title + '">';
+        html += '</div>';
+    }
+    
+    html += '</div>';
+    container.innerHTML = html;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('city-map')) {
-        initCityMap();
-    }
-    loadWeather();
+function highlightActiveNav() {
+    var currentPage = window.location.pathname.split('/').pop();
+    var navLinks = document.querySelectorAll('.nav-menu a');
     
-    const currentLocation = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentLocation) {
-            link.classList.add('active');
+    for (var i = 0; i < navLinks.length; i++) {
+        var link = navLinks[i];
+        var href = link.getAttribute('href');
+        
+        if (href === currentPage) {
+            link.style.background = '#D52B1E';
+            link.style.borderRadius = '4px';
+            link.style.padding = '0.5rem 1rem';
         }
-    });
+        
+        // Special case for index page
+        if (currentPage === '' || currentPage === 'index.php' && href === 'index.php') {
+            link.style.background = '#D52B1E';
+            link.style.borderRadius = '4px';
+            link.style.padding = '0.5rem 1rem';
+        }
+    }
+}
+
+// Start everything once the index.html starts
+document.addEventListener('DOMContentLoaded', function() {
+    initMaps();
+    loadWeather();
+    highlightActiveNav();
 });

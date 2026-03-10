@@ -1,4 +1,8 @@
-<?php include_once 'db_connect.php'; ?>
+<?php 
+
+include_once 'db_connect.php'; 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,14 +49,12 @@
                     <h2>London, United Kingdom</h2>
                     <p><strong>Population:</strong> 8,982,000</p>
                     <p><strong>Currency:</strong> Pounds (£)</p>
-                    <p><strong>Weather:</strong> Partly cloudy</p>
                     <a href="london.php" class="btn">Explore</a>
                 </div>
                 <div class="city-card">
                     <h2>New York City, United States</h2>
                     <p><strong>Population:</strong> 8,419,000</p>
                     <p><strong>Currency:</strong> Dollars ($)</p>
-                    <p><strong>Weather:</strong> Sunny</p>
                     <a href="nyc.php" class="btn">Explore</a>
                 </div>
             <?php endif; ?>

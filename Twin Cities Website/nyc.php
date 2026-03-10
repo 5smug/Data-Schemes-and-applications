@@ -2,15 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New York City Page</title>
-    <!-- CSS -->
+    <title>New York City - Twin Cities</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="assets/main.js"></script>
-    <!-- Flickr -->
-    <script src="api/flickr.php?js=1"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -34,7 +28,7 @@
         </section>
 
         <section class="weather-section">
-            <h2>Current Weather</h2>
+            <h2>3-Day Weather Forecast</h2>
             <div class="weather-container" id="weather-display"></div>
         </section>
 
@@ -56,8 +50,14 @@
                             <p><strong>Description:</strong> <?= $place['Place_Description'] ?></p>
                             <p><strong>Coordinates:</strong> <?= $place['Lat'] ?>, <?= $place['Lon'] ?></p>
                             
-                            <!-- Flickr photos will load here -->
-                            <div class="flickr-photos" data-place="<?= $place['NameofLocation'] ?>"></div>
+                            <!-- Flickr photos container -->
+                            <div id="flickr-<?= $place['Place_of_InterestID'] ?>" class="flickr-photos"></div>
+                            <script>
+                                // Load photos when the page loads
+                                if (typeof loadFlickrPhotos === 'function') {
+                                    loadFlickrPhotos('<?= $place['NameofLocation'] ?>', 'flickr-<?= $place['Place_of_InterestID'] ?>');
+                                }
+                            </script>
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -65,5 +65,9 @@
             </div>
         </section>
     </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/main.js"></script>
+    <script src="api/flickr.php?js=1"></script>
 </body>
 </html>
