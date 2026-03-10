@@ -3,13 +3,14 @@
 include_once '../config.php';
 
 if (isset($_GET['js']) && $_GET['js'] == '1') {
+
     header('Content-Type: application/javascript');
-    // The function is now in main.js, so we just output a comment
+
     echo '// Flickr widget loaded';
+    
     exit;
 }
 
-// Return JSON data
 header('Content-Type: application/json');
 
 $place = isset($_GET['place']) ? $_GET['place'] : '';
