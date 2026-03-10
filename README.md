@@ -1,12 +1,18 @@
 # Data-Schemes-and-applications
 Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applications
 
+# ER Models
+- Conceptual (Done)
+- Logical (Done)
 
-# To do as soon as possible:
-- Individual work
-- RSS
-- Twin cities Website (almost done, needs testing!)
+# Individual work
+- Hamza -> Build and integrate a photo widget
+- Adrian -> Document the code and the system
+- Muhammed -> Not chosen
+
+# SQL Main
+- Done
 
 
-# Things to pontetially do:
-- SQL if it's too little detailed
+# Twin cities Website
+- Mostly done, needs testing.
