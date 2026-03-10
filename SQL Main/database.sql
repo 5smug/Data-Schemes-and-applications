@@ -1,13 +1,13 @@
-CREATE TABLE city (
-    City_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(45) NOT NULL,
-    Country VARCHAR(45) NOT NULL,
-    Population INT,
-    Weather VARCHAR(100),
-    Currency VARCHAR(45),
-    Lon DECIMAL(9,6),
-    Lat DECIMAL(9,6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- CREATE TABLE city (
+--     City_ID INT AUTO_INCREMENT PRIMARY KEY,
+--     Name VARCHAR(45) NOT NULL,
+--     Country VARCHAR(45) NOT NULL,
+--     Population INT,
+--     Weather VARCHAR(100),
+--     Currency VARCHAR(45),
+--     Lon DECIMAL(9,6),
+--     Lat DECIMAL(9,6)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE place_of_interest (
     POI_ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -42,7 +42,7 @@ CREATE TABLE photos (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE PhotoSet (
-    PhotoSetID INT AUTO_INCREMENT PRIMARY KEY,
+    Photo_Set_ID INT AUTO_INCREMENT PRIMARY KEY,
     Place_of_InterestID INT NOT NULL,
     PhotoID INT NOT NULL,
     FOREIGN KEY (Place_of_InterestID) REFERENCES place_of_interest(Place_of_InterestID) ON DELETE CASCADE,
