@@ -23,7 +23,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     
 <channel>
 
-    <title>Twin Cities: London & New York RSS Feed</title>
+    <title>Twin Cities RSS Feed</title>
     <link>http://localhost:8000/Twin%20Cities%20Website/</link>
     <description>Information about our twin cities and places of interest</description>
     <language>en-gb</language>
