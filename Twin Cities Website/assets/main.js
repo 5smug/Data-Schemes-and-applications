@@ -82,8 +82,8 @@ function initMaps() {
     }
 }
 
-// Load weather for London and New York City places
 function loadWeather() {
+    // This information goes onto index.php -> Do not change
     if (document.getElementById('weather-london') && document.getElementById('weather-nyc')) {
         // London weather
         var londonWeather = document.getElementById('weather-london');
@@ -96,10 +96,11 @@ function loadWeather() {
         return;
     }
     
+    // This function makes it so that it changes the display for individual pages (london.php & nyc.php)
     var weatherDisplay = document.getElementById('weather-display');
     if (!weatherDisplay) return;
     
-    // This checks if you are on either london.php or nyc.php
+    // This function checks what page we are on
     if (window.location.pathname.includes('london.php')) {
         weatherDisplay.innerHTML = '<div class="weather-card"><div class="weather-temp">15°C</div><div class="weather-condition">Partly cloudy</div><div class="weather-details"><div>💧 72%</div><div>🌬️ 3.1 m/s</div></div></div>';
     } else if (window.location.pathname.includes('nyc.php')) {
@@ -122,34 +123,18 @@ function loadFlickrPhotos(placeName, containerId) {
     var container = document.getElementById(containerId);
     if (!container) return;
     
-    container.innerHTML = '<div class="flickr-loading">📸 Loading photos...</div>';
+    // Clear container
+    container.innerHTML = '';
     
-    // Sample a photo for each place
-    var photos = [
-        {
-            url_sq: 'https://via.placeholder.com/150/1E3A6F/FFFFFF?text=' + encodeURIComponent(placeName),
-            title: placeName
-        },
-        {
-            url_sq: 'https://via.placeholder.com/150/D52B1E/FFFFFF?text=View',
-            title: placeName + ' View'
-        },
-        {
-            url_sq: 'https://via.placeholder.com/150/FFD700/000000?text=Details',
-            title: placeName + ' Details'
-        },
-        {
-            url_sq: 'https://via.placeholder.com/150/1E3A6F/FFFFFF?text=Landmark',
-            title: placeName + ' Landmark'
-        }
-    ];
+    // Create image filename from place name
+    var filename = placeName.toLowerCase().replace(/ /g, '-') + '.png';
     
     var html = '<div class="flickr-grid">';
     
-    for (var i = 0; i < photos.length; i++) {
-        var photo = photos[i];
+    // Show the same local image 4 times (or however many you want)
+    for (var i = 0; i < 4; i++) {
         html += '<div class="flickr-thumb">';
-        html += '<img src="' + photo.url_sq + '" alt="' + photo.title + '">';
+        html += '<img src="assets/images/' + filename + '" alt="' + placeName + '">';
         html += '</div>';
     }
     

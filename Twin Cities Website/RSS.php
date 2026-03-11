@@ -20,9 +20,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
 
 <rss version="2.0">
+    
 <channel>
+
     <title>Twin Cities: London & New York RSS Feed</title>
-    <link>http://localhost/twin-cities/</link>
+    <link>http://localhost:8000/Twin%20Cities%20Website/</link>
     <description>Information about our twin cities and places of interest</description>
     <language>en-gb</language>
 
@@ -33,7 +35,7 @@ foreach ($cities as $city) {
     echo "<item>";
     echo "<title>" . htmlspecialchars($city['Name']) . ", " . htmlspecialchars($city['Country']) . "</title>";
     echo "<description>" . htmlspecialchars($city['Weather']) . " | Population: " . number_format($city['Population']) . " | Currency: " . htmlspecialchars($city['Currency']) . "</description>";
-    echo "<link>http://localhost/twin-cities/" . strtolower($city['Name']) . ".php</link>";
+    echo "<link>http://localhost:8000/Twin%20Cities%20Website/" . strtolower($city['Name']) . ".php</link>";
     echo "<guid>city-" . $city['City_ID'] . "</guid>";
     echo "<pubDate>" . date(DATE_RSS) . "</pubDate>";
     echo "</item>";
@@ -44,7 +46,7 @@ foreach ($cities as $city) {
             echo "<item>";
             echo "<title>" . htmlspecialchars($place['NameofLocation']) . " - " . htmlspecialchars($city['Name']) . "</title>";
             echo "<description>" . htmlspecialchars($place['Place_Description']) . " | Location: " . htmlspecialchars($place['StreetName']) . ", " . htmlspecialchars($place['Postcode']) . " | Coordinates: " . $place['Lat'] . ", " . $place['Lon'] . "</description>";
-            echo "<link>http://localhost/twin-cities/" . strtolower($city['Name']) . ".php</link>";
+            echo "<link>http://localhost:8000/Twin%20Cities%20Website/" . strtolower($city['Name']) . ".php</link>";
             echo "<guid>place-" . $place['Place_of_InterestID'] . "</guid>";
             echo "<pubDate>" . date(DATE_RSS) . "</pubDate>";
             echo "</item>";
@@ -55,4 +57,5 @@ foreach ($cities as $city) {
 ?>
 
 </channel>
+
 </rss>

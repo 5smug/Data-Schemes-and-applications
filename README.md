@@ -16,3 +16,6 @@ Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applicatio
 
 # Twin cities Website
 - Mostly done, needs testing.
+
+# RSS
+- Needs testing, not configured yet
