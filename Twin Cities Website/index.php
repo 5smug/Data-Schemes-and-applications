@@ -3,17 +3,20 @@
 include_once 'db_connect.php'; 
 
 ?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Twin Cities: London & New York</title>
-    <!-- CSS -->
+    <title>Document</title>
+    <!-- CSS add-ons -->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- JS -->
+    <!-- Javascript add-ons -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/main.js"></script>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -67,4 +70,5 @@ include_once 'db_connect.php';
         </section>
     </main>
 </body>
+
 </html>

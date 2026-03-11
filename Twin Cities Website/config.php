@@ -6,7 +6,6 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('WEATHER_API_KEY', 'f53a0c93df620d12354925b7bf0313c0');
 define('WEATHER_API_URL', 'https://api.openweathermap.org/data/2.5/weather');
-define('FLICKR_API_KEY', 'your_key_here');
 date_default_timezone_set('Europe/London'); 
 
 try {

@@ -6,7 +6,7 @@ include_once 'db_connect.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>London - Twin Cities</title>
+    <title>London's Page</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
