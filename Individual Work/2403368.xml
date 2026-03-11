@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<submission_xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="submission_schema.xsd">
+    <!-- 
+    This file is an example of a valid individual submission file. 
+    Note the schema file (XSD) pointed to on line 2/3 - TREAT THE SCHEMA AS READ ONLY
+    Use this example file as a template and fill with your own data 
+    validating as you go along using Oxygen or some other schema aware editor;
+	an on-line tool is here: https://www.liquid-technologies.com/online-xsd-validator
+    
+    DO NOT CHANGE ANY TAGS OR THEIR ORDER BUT ONLY THE CONTENT, OTHERWISE VALIDATION WILL FAIL
+    Keep the schema in the same directory as the document as that's where oXygen expects it.
+    -->    
+    <group id="L"/>
+    <student id="2403368"/>
+    <!--- Describe one or more group tasks that you contributed to -->
+    <group_contribution>
+        For the entire group, I have contributed to point 2. Use and integration of external API's, part 3. Configuration file and the logical er model.
+        Being in a group of 3 people, we tried to divide the work equally, but it was pretty difficult to do that, especially when not everyone knew how to use 
+        sql to create a database, or creating php files. I have more experience using front-end and creating sql's to I took most of the coding & sql parts.
+    </group_contribution>
+    <!--- Describe your individual component -->
+    <individual_component type="Document the code and the system">
+        <description>
+            While creating most of the code, and even going through files which I haven't created, I have maped out what each
+            sequence does from that part of the code. Although I haven't put explanations everywhere, as in I didn't say for 
+            javascript, every php file has deep details for it.
+        </description>
+        <problems>
+            I have encountered problems when creating the weather.php file as it was kinda a new thing for me.
+            The problems were relatively normal, as in the API key wasn't connecting, it wasn't gathering the correct
+            information. And finally, it wouldn't find the coordinates
+        </problems>
+        <solutions>
+            The solution were that instead of trying to read the API Key, instead, I made it only for config.php so that the
+            weather.php file summon it and connect to it. And I also made it so that it gathers the correct information 
+            by making it dirrectly connect to places_of_interestID from the database. Finally, to fix the final issue,
+            I made it to gathered the lat and lon specifically from the database.
+        </solutions>
+        <hours_effort>20</hours_effort>
+        <technologies>
+            <tech>php</tech>
+            <tech>javascript & CSS</tech>
+            <tech>xml</tech>
+        </technologies>
+        <source_files>
+            <file>
+                <name>weather.php</name>
+                <purpose>To fetch and summon all weather critiria.</purpose>
+            </file>
+            <file>
+                <name>index.php</name>
+                <purpose>Main page. It's got both of the maps and weather forecast, but it does not have the places of interest. Those are for their own pages</purpose>
+            </file>
+        </source_files>
+    </individual_component>
+    <security_discussion>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </security_discussion>
+    <individual_comment>This part was done by me and was even easier. It was all just so easy.
+        Surprisingly so. Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+        pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis.
+    </individual_comment>
+</submission_xml>
+<!-- DSA Individual XML File Example, 2025-6 -->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+ <!-- 
+    ==================================================================
+    This is the schema for the individual xml submission file. 
+    See 99999999.xml for a valid example instance. 
+    Ensure your [student_no].xml is validated against this schema 
+    using Oxygen or some other validator.
+    DO NOT EDIT OR CHANGE THIS FILE UNDER ANY CIRCUMSTANCES 
+    
+    Version 1.5
+    ==================================================================
+  -->
+    <xs:element name="submission_xml">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="group">
+                    <xs:complexType>
+                        <xs:attribute name="id" use="required" type="group_idType"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="student">
+                    <xs:complexType>
+                        <xs:attribute name="id" use="required" type="student_idType"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="group_contribution" maxOccurs="1" type="txtType"/>
+				<xs:element name="individual_component" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="description" type="txtType"/>
+                            <xs:element name="problems" type="txtType"/>
+                            <xs:element name="solutions" type="txtType"/>
+                            <xs:element name="hours_effort" type="hours_effortType"/>
+                            <xs:element name="technologies">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="tech" minOccurs="2" maxOccurs="6"
+                                            type="techType"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="source_files">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="file" minOccurs="1" maxOccurs="4">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="name" type="xs:string"/>
+                                                  <xs:element name="purpose" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="type" use="required" type="cmpType"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="security_discussion" maxOccurs="1" type="txtType"/>
+                <xs:element name="individual_comment" maxOccurs="1" type="txtType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="techType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="php"/>
+            <xs:enumeration value="xml"/>
+            <xs:enumeration value="xslt"/>
+            <xs:enumeration value="xsd"/>
+            <xs:enumeration value="sql"/>
+            <xs:enumeration value="html5"/>
+            <xs:enumeration value="css"/>
+            <xs:enumeration value="javascript"/>
+            <xs:enumeration value="mysql"/>
+            <xs:enumeration value="json"/>
+            <xs:enumeration value="er-modelling"/>
+        	<xs:enumeration value="rss"/>
+            <xs:enumeration value="other"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="group_idType">
+        <xs:restriction base="xs:string">
+        	<xs:enumeration value="A"/>
+        	<xs:enumeration value="B"/>
+        	<xs:enumeration value="C"/>
+        	<xs:enumeration value="D"/>
+        	<xs:enumeration value="E"/>
+        	<xs:enumeration value="F"/>
+        	<xs:enumeration value="G"/>
+        	<xs:enumeration value="H"/>
+        	<xs:enumeration value="I"/>
+        	<xs:enumeration value="J"/>
+        	<xs:enumeration value="K"/>
+        	<xs:enumeration value="L"/>
+        	<xs:enumeration value="M"/>
+        	<xs:enumeration value="O"/>
+        	<xs:enumeration value="P"/>
+        	<xs:enumeration value="Q"/>
+        	<xs:enumeration value="R"/>
+        	<xs:enumeration value="S"/>
+        	<xs:enumeration value="T"/>
+        	<xs:enumeration value="U"/>
+        	<xs:enumeration value="V"/>
+        	<xs:enumeration value="Z"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="student_idType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="23016312"/>
+            <xs:enumeration value="23036206"/>
+            <xs:enumeration value="24022783"/>
+            <xs:enumeration value="23031806"/>
+            <xs:enumeration value="23026724"/>
+            <xs:enumeration value="21017116"/>
+            <xs:enumeration value="24029917"/>
+            <xs:enumeration value="23032886"/>
+            <xs:enumeration value="23010967"/>
+            <xs:enumeration value="24012100"/>
+            <xs:enumeration value="24018695"/>
+            <xs:enumeration value="23026650"/>
+            <xs:enumeration value="23002244"/>
+            <xs:enumeration value="20007323"/>
+            <xs:enumeration value="24028358"/>
+            <xs:enumeration value="21034937"/>
+            <xs:enumeration value="24028985"/>
+            <xs:enumeration value="24061851"/>
+            <xs:enumeration value="24049853"/>
+            <xs:enumeration value="24063062"/>
+            <xs:enumeration value="24063060"/>
+            <xs:enumeration value="23019506"/>
+            <xs:enumeration value="24027098"/>
+            <xs:enumeration value="23061828"/>
+            <xs:enumeration value="24043316"/>
+            <xs:enumeration value="23024137"/>
+            <xs:enumeration value="23011792"/>
+            <xs:enumeration value="24064407"/>
+            <xs:enumeration value="24057499"/>
+            <xs:enumeration value="23072050"/>
+            <xs:enumeration value="24009026"/>
+            <xs:enumeration value="24035481"/>
+            <xs:enumeration value="24046371"/>
+            <xs:enumeration value="24013871"/>
+            <xs:enumeration value="23066631"/>
+            <xs:enumeration value="24044286"/>
+            <xs:enumeration value="24022483"/>
+            <xs:enumeration value="22032393"/>
+            <xs:enumeration value="23040332"/>
+            <xs:enumeration value="23077470"/>
+            <xs:enumeration value="24014279"/>
+            <xs:enumeration value="24062938"/>
+            <xs:enumeration value="23079035"/>
+            <xs:enumeration value="23048237"/>
+            <xs:enumeration value="24035460"/>
+            <xs:enumeration value="22028231"/>
+            <xs:enumeration value="22029495"/>
+            <xs:enumeration value="23026741"/>
+            <xs:enumeration value="23018364"/>
+            <xs:enumeration value="23039643"/>
+            <xs:enumeration value="24016391"/>
+            <xs:enumeration value="24064214"/>
+            <xs:enumeration value="24030667"/>
+            <xs:enumeration value="22067002"/>
+            <xs:enumeration value="23081317"/>
+            <xs:enumeration value="24063298"/>
+            <xs:enumeration value="24056836"/>
+            <xs:enumeration value="24033689"/>
+            <xs:enumeration value="24057257"/>
+            <xs:enumeration value="21005000"/>
+            <xs:enumeration value="24033655"/>
+            <xs:enumeration value="23064697"/>
+            <xs:enumeration value="24049987"/>
+            <xs:enumeration value="24041197"/>
+            <xs:enumeration value="24023644"/>
+            <xs:enumeration value="24056602"/>
+            <xs:enumeration value="24023211"/>
+            <xs:enumeration value="24058709"/>
+            <xs:enumeration value="24030009"/>
+            <xs:enumeration value="23054011"/>
+            <xs:enumeration value="23002240"/>
+            <xs:enumeration value="24041677"/>
+            <xs:enumeration value="23061396"/>
+            <xs:enumeration value="23057547"/>
+            <xs:enumeration value="24020551"/>
+            <xs:enumeration value="24062115"/>
+            <xs:enumeration value="23077626"/>
+            <xs:enumeration value="99999999"/>            
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="cmpType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Refactor the data set using XML and XML-Schema"/>
+            <xs:enumeration value="Build and integrate a comments widget"/>
+            <xs:enumeration value="Build and integrate a photo widget"/>
+            <xs:enumeration value="Document the code and the system"/>
+            <xs:enumeration value="Refactor the front-end to be responsive"/>
+            <xs:enumeration value="Refactor the data and map it to a NoSQL database"/>
+            <xs:enumeration value="Refactor the application to a (micro) PHP framework"/>
+            <xs:enumeration value="Refactor the application to a Single Page Application (SPA)"/>
+            <xs:enumeration value="Use and Document a Test Framework"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="txtType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="140"/>
+            <xs:maxLength value="12000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="hours_effortType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+<!-- DSA Individual Schema File, 2025/26-->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->
