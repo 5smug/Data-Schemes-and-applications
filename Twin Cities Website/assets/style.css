@@ -27,7 +27,7 @@ body {
 }
 
 .navbar .container {
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
 }
@@ -141,10 +141,12 @@ body {
     font-style: italic;
 }
 
+/* Creates a own section for both index.php and nyc.php */
 .places-section {
     margin: 3rem 0;
 }
 
+/* This makes the heading for the section */
 .places-section h2 {
     color: #FFD700;  
     margin-bottom: 1.5rem;
@@ -152,6 +154,7 @@ body {
     display: inline-block;
 }
 
+/*  */
 .places-section h2:after {
     content: '';
     position: absolute;
@@ -218,7 +221,8 @@ body {
     color: #FFD700;
 }
 
-/* Buttons */
+/* Below are all the functions for the buttons. If they aren't hovered, or the index.php page hasn't started, they are normal */
+/* If the index.php just started, it follow main.js */
 .btn { 
     display: inline-block; 
     padding: 0.8rem 1.5rem; 
@@ -232,17 +236,19 @@ body {
     cursor: pointer;
 }
 
+/* If you hover over a button, it's gives a clear red background to know which button you are going to be using */
 .btn:hover {
     background: #A52016;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(213, 43, 30, 0.3);
 }
 
-/* Headings */
+/* Creating a colour pattern for the headings */
 h1, h2, h3 {
     color: #FFFFFF;
 }
 
+/* Makes the main feel of the title gold */
 h1 {
     color: #FFD700; 
     margin: 2rem 0;
@@ -250,6 +256,7 @@ h1 {
     display: inline-block;
 }
 
+/* Makes the main title give the autentic English colour scheme */
 h1:after {
     content: '';
     position: absolute;
@@ -260,7 +267,7 @@ h1:after {
     background: linear-gradient(90deg, #D52B1E, #1E3A6F, #FFD700);
 }
 
-/* For leaflet, do not change */
+/* This was taken from other sources, added for the leaflet map */
 .leaflet-popup-content-wrapper {
     background: #1E1E1E;
     color: white;
@@ -289,7 +296,7 @@ a[href*="feed.php"]:hover {
     color: white !important;
 }
 
-/* Responsive */
+/* This makes the outputs be responsive */
 @media (max-width: 768px) { 
     .nav-menu { 
         flex-direction: column;
@@ -305,7 +312,7 @@ a[href*="feed.php"]:hover {
     }
 }
 
-/* The style below is made just for flickr */
+/* All the style below is made for flickr.php */
 .flickr-loading {
     color: #888;
     font-style: italic;
