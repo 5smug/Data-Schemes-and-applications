@@ -2,20 +2,20 @@
 Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applications
 
 # ER Models
-- Conceptual (Done)
+- Conceptual (Not done, redo)
 - Logical (Done)
 
 # Individual work
-- Hamza -> Build and integrate a photo widget
+- Hamza -> Build and integrate a photo widge
 - Adrian -> Document the code and the system
-- Muhammed -> Not chosen
+- Muhammed -> Refactor the front end to be responsive
 
 # SQL Main
 - Done
 
 
 # Twin cities Website
-- Mostly done, needs testing.
+- Making it so that when you type a marker, it gives you information, check guidance
 
 # RSS
 - Needs testing, not configured yet
