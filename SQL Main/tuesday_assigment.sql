@@ -74,5 +74,6 @@ VALUES
 
 INSERT INTO news (Headline, Link, Body, City_ID, PublishTime)
 VALUES 
+-- This information is gathered from other sources, such as Google.com/search (Basic AI)
 ('London Announces New Cultural Festival', 'https://example.com/london-festival', 'London will host a month-long cultural festival starting next month featuring music, art, and food from around the world.', 1, NOW()),
 ('NYC Launches Sustainable Transport Initiative', 'https://example.com/nyc-transport', 'New York City announces major investment in cycling infrastructure and electric buses.', 2, NOW());
