@@ -22,7 +22,7 @@
     <!--- Describe your individual component -->
     <individual_component type="Document the code and the system">
         <description>
-            While creating most of the code, and even going through files which I haven't created, I have maped out what each
+            While creating most of the code, and even going through files which I haven't created, I have mapped out what each
             sequence does from that part of the code. Although I haven't put explanations everywhere, as in I didn't say for 
             javascript, every php file has deep details for it.
         </description>
@@ -34,7 +34,7 @@
         <solutions>
             The solution were that instead of trying to read the API Key, instead, I made it only for config.php so that the
             weather.php file summon it and connect to it. And I also made it so that it gathers the correct information 
-            by making it dirrectly connect to places_of_interestID from the database. Finally, to fix the final issue,
+            by making it directly connect to places_of_interestID from the database. Finally, to fix the final issue,
             I made it to gathered the lat and lon specifically from the database.
         </solutions>
         <hours_effort>20</hours_effort>
@@ -46,7 +46,7 @@
         <source_files>
             <file>
                 <name>weather.php</name>
-                <purpose>To fetch and summon all weather critiria.</purpose>
+                <purpose>To fetch and summon all weather criteria.</purpose>
             </file>
             <file>
                 <name>index.php</name>
@@ -54,14 +54,42 @@
             </file>
         </source_files>
     </individual_component>
-    <security_discussion>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    <security_discussion>
+        For our twin cities website, we have considered some of the Parkerian Hexad attributes. One of them is confidentiality. We have decided to not implement a 
+        login / logout system. We have decided this for only one truthful reason. We didn't see fit for it. We have implement multiple things that wasn't asked of us,
+        but we did not see any reason to add a login / logout system. This would have made our life harder and there's no point in it. As for our API keys,
+        we decided to make them server-side that they don't become a hazard to us. This way the APIs aren't exposed, and we can use them whenever we press "F5" to run
+        the code. For even further protection, we are 100% sure that all of our database information and even all the work that we've done is saved and completely 
+        untouchable on our Github repository. This is being said because we have made our repository private, meaning only the three of us which have created this code 
+        can access it, modify it and save it. The contributors are just the three people present in "group L". So not only is our github fully protected, so it's our
+        website when we run it. Being run by localhost it truly means no external access can penetrate or invade our project.
+
+        As in for our integrity, all the information displayed on this project is read-only. We do not have any way for user to generate content, or to input it in any way.
+        Not only can the users not generate content, the data shown is also read-only. The data presented on the project cannot be modified or tampered with in any way by
+        any visitors. Even using localhost to publish it, when public, the website cannot be modified in any way. The foreign keys in our database prevent any type of 
+        corruption and makes the localhost a completely safe space to work in and use. For our final integrity check, we have made sure that all our PDO statements
+        prevent any type of SQL injection. This was made as the last line of backup to make sure nothing can be edited.
+
+        For our authenticity, we have gathered all the information from public sources, such as OpenWeatherAPI, wikipedia, tourism sites, and others. From OpenWeatherAPI,
+        we have gathered all the necessary information for the humidity and weather forecast status. All this information is stored on their part, we get all of this 
+        information for simply using their free generated weather_api_key. All the city information, as in coordinates and postcode has been gathered from wikipedia and
+        google search engine. As in for information for the description of each individual place, we have gathered that from the tourism website of each individual city.
+        We also have our limitations. For example : Flickr. Flickr limits us on our sample images. We knew this and yet we still decided to use because it's a great 
+        api to use.
+
+        As for the final security discussion, we can talk about our availability. Database will always automatically start is the XAMPP and the php files are running.
+        This meaning that the project is limited because of the localhost limitations. But even with this, if our weather_api_key falls offline, we have a fallback data until 
+        it starts running again. And even then, we do have our RSS feed as an alternative access method.
     </security_discussion>
-    <individual_comment>This part was done by me and was even easier. It was all just so easy.
-        Surprisingly so. Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
-        pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis.
+    <individual_comment>
+        My main contributions was in setting up the structure and the weather side of the coding side. For how I found it, I can't really say it was easy. But, I can say
+        that it challenged me and taught me some stuff. I haven't really worked with php in this volume before. So my attitude towards this coding language has changed, for
+        both better and worse. If I were to choose the most difficult part, it would definitely be integrating the javascript with the php code. I have struggled the most
+        at that part of the code and I have been working with javascript for more than 3 years. But even with this experience I have made multiple errors with it, dozen even. 
+        Those mistakes made my code crash multiple times and just a few days ago I got it figured out. Honestly, just those 150-200 lines of coding cause me more trouble 
+        than the MySQL. Creating the database for the information we require was pretty tough, but at least I had the conceptual and logical component as my go to for 
+        inspiration and what we needed. Anything else, I have not really give it a stress. It wasn't hard learning the basics of php. 
+        Just 2 tutorials and w3schools was enough to help me get started on this project.
     </individual_comment>
 </submission_xml>
 <!-- DSA Individual XML File Example, 2025-6 -->

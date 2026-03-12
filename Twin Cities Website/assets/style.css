@@ -1,3 +1,4 @@
+/* Creates a basic view */
 * { 
     margin: 0; 
     padding: 0; 
@@ -243,6 +244,7 @@ h1, h2, h3 {
     color: #FFFFFF;
 }
 
+/* Main heading, this is displayed at the top of the page */
 h1 {
     color: #FFD700; 
     margin: 2rem 0;
@@ -250,6 +252,7 @@ h1 {
     display: inline-block;
 }
 
+/* This is made for the line under the main heading */
 h1:after {
     content: '';
     position: absolute;
@@ -347,7 +350,7 @@ a[href*="feed.php"]:hover {
     }
 }
 
-/* Scrollbar */
+/* Added a tiny scrollbar so that it doesn't use the default one */
 ::-webkit-scrollbar {
     width: 10px;
 }
