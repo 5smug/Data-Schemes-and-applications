@@ -55,8 +55,8 @@
         </source_files>
     </individual_component>
     <security_discussion>
-        For our twin cities website, we have considered some of the Parkerian Hexad attributes. One of them is confidentiality. We have decided to not implement a 
-        login / logout system. We have decided this for only one truthful reason. We didn't see fit for it. We have implement multiple things that wasn't asked of us,
+        For our twin cities website, we have found that we do qualify in a couple Parkerian Hexad attributes. One of them is confidentiality. We have decided to not implement 
+        a login / logout system. We have decided this for only one truthful reason. We didn't see fit for it. We have implement multiple things that wasn't asked of us,
         but we did not see any reason to add a login / logout system. This would have made our life harder and there's no point in it. As for our API keys,
         we decided to make them server-side that they don't become a hazard to us. This way the APIs aren't exposed, and we can use them whenever we press "F5" to run
         the code. For even further protection, we are 100% sure that all of our database information and even all the work that we've done is saved and completely 
