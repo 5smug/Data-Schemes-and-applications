@@ -156,7 +156,7 @@ function highlightActiveNav() {
             link.style.padding = '0.5rem 1rem';
         }
         
-        // Once index.php starts, every button gets turned red even if they haven't been used
+        // Special case for index page
         if (currentPage === '' || currentPage === 'index.php' && href === 'index.php') {
             link.style.background = '#D52B1E';
             link.style.borderRadius = '4px';
