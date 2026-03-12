@@ -6,7 +6,7 @@ Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applicatio
 - Logical (Done)
 
 # Individual work
-- Hamza -> Build and integrate a photo widge
+- Hamza -> Build and integrate a photo widget
 - Adrian -> Document the code and the system
 - Muhammed -> Refactor the front end to be responsive
 
