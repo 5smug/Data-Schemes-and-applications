@@ -17,7 +17,7 @@
     </group_contribution>
     
     <!--- Describe your individual component -->
-    <individual_component type="Refactor the data set using XML and XML-Schema">
+    <individual_component type="Refactor the front end to be responsive">
         <description>
             My individual task was to refactor the front-end of the application to make it 
             responsive and improve the overall user interface. I applied a CSS framework 
