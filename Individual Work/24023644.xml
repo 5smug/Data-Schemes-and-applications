@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<submission_xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="submission_schema.xsd">
+    <!-- 
+    This file is an example of a valid individual submission file. 
+    Note the schema file (XSD) pointed to on line 2/3 - TREAT THE SCHEMA AS READ ONLY
+    Use this example file as a template and fill with your own data 
+    validating as you go along using Oxygen or some other schema aware editor;
+	an on-line tool is here: https://www.liquid-technologies.com/online-xsd-validator
+    
+    DO NOT CHANGE ANY TAGS OR THEIR ORDER BUT ONLY THE CONTENT, OTHERWISE VALIDATION WILL FAIL
+    Keep the schema in the same directory as the document as that's where oXygen expects it.
+    -->    
+    <group id="L"/>
+    <student id="24023644"/>
+    <!--- Describe one or more group tasks that you contributed to -->
+    <group_contribution>
+		I helped out with the index.php layout. Spent time messing around with the CSS to get the two maps sitting side by side properly and 
+        took a few tries to stop them from stacking weirdly. Made sure the weather sections lined up and didn't look wonky. Kept the navigation 
+        bar consistent with what i did on london.php and nyc.php so the whole site feels the same. The dark theme we went with looks decent,
+        had to tweak the spacing a bit because things felt too cramped, but in the end we go there and finished it off.
+     </group_contribution>
+    <!--- Describe your individual component -->
+    <individual_component type="Build and integrate a photo widge">
+        <description> So i Built a photo widget using the Unsplash API. I looked at both Flickr and Unsplash and chose Unsplash 
+            for better photo quality and simpler implementation. The Widget displays 9 photos in a responsive grid 
+            for London and New York. Features include loading skeletons, credits with photographer links, 
+            and localStorage caching to manage API rate limits. Integrated into london.php and 
+            nyc.php, plus created hamza-test.php for independent demonstration. 
+        </description>
+        <problems> The Main challenges i had were Unsplash rate limits 50 request per hour for a new application,
+        inconsistent photo sizes breaking the grid layout, cache path errors in the proxy file that took ages to debug,
+         and group database config issues that made integration testing on london.php difficult.
+        </problems>
+        <solutions>To work around the 50 requests per hour demo mode limit, I implemented localStorage caching with 
+            24 hour expiry and now the API only gets called once per day per city. This keeps me well within 
+            the rate limits while the app is still in demo mode. Fixed the photo size issue with CSS 
+            object fit(cover which makes all images fit neatly in the grid). The cache path errors were 
+            resolved by using __DIR__ in the proxy file instead of relative paths. For the group database 
+            issues, I created hamza-test.php to demonstrate the widget independently(the group database issues has been resolved)
+        </solutions>
+        <hours_effort>10</hours_effort>
+        <technologies>
+            <tech>php</tech>
+            <tech>javascript</tech>
+            <tech>xml</tech>
+            <tech>CSS</tech>
+            <tech>Unsplash API</tech>
+
+        </technologies>
+        <source_files>
+            <file>
+                <name>unsplash.php</name>
+                <purpose>to fetch unsplash photos</purpose>
+            </file>
+            <file>
+                <name>London.php</name>
+                <purpose>Displays London's map, weather forecast, places of interest,
+                 and includes my integrated Unsplash photo widget showing London
+                 photos at the bottom of the page </purpose>
+            </file>
+        </source_files>
+    </individual_component>
+    <security_discussion> When thinking about security for our project, we focused on keeping things simple but protected. 
+    We made sure our API keys stay server side in proxy files so they never show up in the browser 
+    where someone could grab them. The JavaScript only calls our proxies, not the APIs directly.
+    Our GitHub repository is private too so only me and my two teammates can access the code. No random people can see or steal our work, 
+    which means we keep control over who has possession of it.
+    For the data itself, we wanted to make sure it stays correct and unmodified. 
+    The database only gets updated through proper channels, and my photo widget caches photos with timestamps.
+    if the cache is older than 24 hours, it fetches fresh ones so users aren't looking at outdated images.
+    We also thought about making sure everything is available when needed. The site runs on localhost during development so we always have access.
+    For the photo widget, the caching means photos still show up even if Unsplash hits its rate limits or goes down temporarily.
+    Users see the last successfully fetched photos instead of broken images.
+    We didn't add a login system because there was no real need and nobody needs an account just to look at city information and photos. 
+    Would've been extra work for no real benefit.
+    </security_discussion>
+    <individual_comment> I built a photo widget using the Unsplash API for London and New York. I Looked at Flickr first but switched to Unsplash 
+    because the API was way easier to understand and the photos just look better. The caching bit took me ages to figure out because it Kept getting
+    file path errors until I found the __DIR__ fix on Stack Overflow.I then added loading skeletons so it doesn't just sit there blank while waiting for photos. 
+    I got it working on both london.php and nyc.php, plus made a separate test page to prove it works on its own. 
+    The localStorage cache means it only calls Unsplash once per day which keeps me under their rate limits.
+    </individual_comment>
+</submission_xml>
+<!-- DSA Individual XML File Example, 2025-6 -->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->
