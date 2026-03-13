@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<submission_xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="submission_schema.xsd">
+    
+    <group id="Z"/>
+    <student id="99999999"/>
+    
+    <!--- Describe one or more group tasks that you contributed to -->
+    <group_contribution>
+        I contributed to several tasks within the group project. My role involved helping to organise 
+        the dataset structure, discussing the system design with teammates, and assisting with the 
+        implementation of the XML data format. I also collaborated with the group to review the 
+        schema design and ensure that the data could be validated correctly. Additionally, I helped 
+        test the XML files and checked that the structure followed the schema requirements.
+        
+        I contributed to the group project by refactoring the front-end of the application 
+        to make it responsive across different screen sizes. I applied a CSS framework to 
+        improve the layout, styling, and overall user experience of the website. This 
+        included restructuring the page layout, improving navigation, and ensuring that 
+        the interface worked well on both desktop and mobile devices.  I supported other group members by reviewing parts 
+        of the implementation and assisting with tasks where needed to ensure the project 
+        progressed smoothly.
+    </group_contribution>
+    
+    <!--- Describe your individual component -->
+    <individual_component type="Refactor the data set using XML and XML-Schema">
+        <description>
+            My individual task was to refactor the dataset into XML format and design an appropriate 
+            XML Schema (XSD) to validate the structure. This involved analysing the original dataset, 
+            converting the data into well-structured XML elements, and ensuring that the hierarchy 
+            and relationships between data fields were logical and consistent. The schema was used 
+            to enforce rules such as required elements, correct data types, and valid structure.
+            
+            My individual task was to refactor the front-end of the application to make it 
+            responsive and improve the overall user interface. I applied a CSS framework 
+            to enhance the design, layout, and usability of the website. This involved 
+            restructuring the page layout, improving the navigation, and ensuring that the 
+            website adapts correctly to different screen sizes such as desktops, tablets, 
+            and mobile devices. I also used additional tools such as icon libraries to 
+            improve the visual appearance of the application.
+        </description>
+        
+        <problems>
+            During development, several issues were encountered. One problem was ensuring that the 
+            XML structure matched the schema exactly, as even small mistakes could cause validation 
+            errors. Another challenge was deciding the best way to organise the data hierarchy so 
+            that it remained readable and scalable. Additionally, some validation errors occurred 
+            when data types or required elements were missing.
+            
+            One of the main challenges was adapting the existing layout so that it worked 
+            correctly on different screen sizes. Some elements did not align properly when 
+            viewed on smaller devices, and certain components needed to be reorganised 
+            using responsive grid systems. Another issue was ensuring that styling from 
+            the new CSS framework did not conflict with the existing styles in the project.
+        </problems>
+        
+        <solutions>
+            These problems were solved by carefully reviewing the XML schema and validating the 
+            document regularly using an XML validation tool. The structure of the XML file was 
+            improved by reorganising elements into a clearer hierarchy. Validation errors were 
+            fixed by ensuring that all required elements were included and that the correct data 
+            types were used according to the schema rules.
+            
+            These problems were solved by restructuring the layout using the responsive 
+            grid system provided by the CSS framework. Media queries and responsive 
+            classes were applied to adjust the layout depending on the screen size. 
+            Conflicting styles were resolved by reviewing the CSS structure and applying 
+            consistent styling rules across the application.
+        </solutions>
+        
+        <hours_effort>12</hours_effort>
+        
+        <technologies>
+            <tech>php</tech>
+            <tech>javascript</tech>
+            <tech>xml</tech>
+        </technologies>
+        
+        <source_files>
+            <file>
+                <name>index.html</name>
+                <purpose>Main page where Bootstrap classes were applied to create a responsive layout</purpose>
+            </file>
+            <file>
+                <name>style.css</name>
+                <purpose>Custom styling used alongside the CSS framework to improve the design</purpose>
+            </file>
+        </source_files>
+        
+        
+    </individual_component>
+    
+    <security_discussion>
+        Security considerations were important when handling external data sources and web-based 
+        technologies. Proper validation of XML files was necessary to prevent malformed data from 
+        being processed. Additionally, input validation and sanitisation should be implemented in 
+        server-side scripts to reduce risks such as injection attacks. Access permissions and 
+        secure data handling practices are also important to ensure that sensitive information 
+        is protected and that the system operates safely.
+        
+        Data security is an important consideration when developing web applications. 
+        The Parkerian Hexad identifies six attributes that define information security. 
+        In the development of our group application, several of these attributes were 
+        considered, particularly in relation to the refactoring of the front-end to 
+        create a responsive and accessible user interface.
+        
+        Confidentiality refers to protecting information from unauthorised access. 
+        While the responsive front-end mainly focuses on user interface design, it 
+        still plays a role in protecting sensitive information by ensuring that data 
+        is displayed appropriately across different devices. Responsive layouts help 
+        prevent sensitive content from being accidentally exposed or displayed 
+        incorrectly on smaller screens, which could otherwise make information easier 
+        to view by unintended users.
+        
+        Integrity ensures that information remains accurate and is not modified in an 
+        unauthorised way. In the application, integrity can be supported through proper 
+        input validation and structured data handling. When refactoring the front-end, 
+        form elements and user inputs were organised using consistent layout structures, 
+        helping to ensure that data entered by users follows the expected format before 
+        being processed by the system.
+        
+        Authenticity refers to verifying that users and data sources are genuine. 
+        Although authentication mechanisms are typically handled on the server side, 
+        the front-end still contributes by clearly presenting login forms, navigation, 
+        and user interface elements that help users interact with the system correctly. 
+        A well-structured and responsive interface reduces the risk of user confusion 
+        and helps ensure that users interact with legitimate parts of the application.
+        
+        Availability is another important attribute of the Parkerian Hexad. By 
+        refactoring the front-end to be responsive, the application becomes accessible 
+        across a wide range of devices, including mobile phones, tablets, and desktop 
+        computers. This improves availability because users can access and use the 
+        system regardless of the device they are using. Responsive design also improves 
+        performance and usability, ensuring that the application loads correctly and 
+        remains functional across different screen sizes.
+        
+        By considering these aspects of the Parkerian Hexad during development, the 
+        application becomes more secure, reliable, and accessible to users across 
+        multiple platforms.
+         
+       
+        
+    </security_discussion>
+    
+    <individual_comment>
+        This section of the project was completed individually. The task helped improve my 
+        understanding of XML structure, schema validation, and how data can be organised in a 
+        structured and machine-readable format. Through this work, I gained practical experience 
+        in validating XML files and ensuring that they conform to defined schema rules.
+        
+        This part of the project was completed individually and focused on refactoring the 
+        front-end of the application to make it responsive and improve the overall user 
+        interface. Through this task, I developed a better understanding of responsive web 
+        design and how CSS frameworks can be used to create flexible layouts that adapt 
+        to different screen sizes. I also gained practical experience in improving website 
+        usability, organising page structure, and ensuring that the application provides a 
+        consistent user experience across desktop, tablet, and mobile devices.
+    </individual_comment>
+    
+</submission_xml>
