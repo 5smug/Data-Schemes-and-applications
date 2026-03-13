@@ -7,12 +7,6 @@
     
     <!--- Describe one or more group tasks that you contributed to -->
     <group_contribution>
-        I contributed to several tasks within the group project. My role involved helping to organise 
-        the dataset structure, discussing the system design with teammates, and assisting with the 
-        implementation of the XML data format. I also collaborated with the group to review the 
-        schema design and ensure that the data could be validated correctly. Additionally, I helped 
-        test the XML files and checked that the structure followed the schema requirements.
-        
         I contributed to the group project by refactoring the front-end of the application 
         to make it responsive across different screen sizes. I applied a CSS framework to 
         improve the layout, styling, and overall user experience of the website. This 
@@ -25,12 +19,6 @@
     <!--- Describe your individual component -->
     <individual_component type="Refactor the data set using XML and XML-Schema">
         <description>
-            My individual task was to refactor the dataset into XML format and design an appropriate 
-            XML Schema (XSD) to validate the structure. This involved analysing the original dataset, 
-            converting the data into well-structured XML elements, and ensuring that the hierarchy 
-            and relationships between data fields were logical and consistent. The schema was used 
-            to enforce rules such as required elements, correct data types, and valid structure.
-            
             My individual task was to refactor the front-end of the application to make it 
             responsive and improve the overall user interface. I applied a CSS framework 
             to enhance the design, layout, and usability of the website. This involved 
@@ -41,12 +29,6 @@
         </description>
         
         <problems>
-            During development, several issues were encountered. One problem was ensuring that the 
-            XML structure matched the schema exactly, as even small mistakes could cause validation 
-            errors. Another challenge was deciding the best way to organise the data hierarchy so 
-            that it remained readable and scalable. Additionally, some validation errors occurred 
-            when data types or required elements were missing.
-            
             One of the main challenges was adapting the existing layout so that it worked 
             correctly on different screen sizes. Some elements did not align properly when 
             viewed on smaller devices, and certain components needed to be reorganised 
@@ -55,12 +37,6 @@
         </problems>
         
         <solutions>
-            These problems were solved by carefully reviewing the XML schema and validating the 
-            document regularly using an XML validation tool. The structure of the XML file was 
-            improved by reorganising elements into a clearer hierarchy. Validation errors were 
-            fixed by ensuring that all required elements were included and that the correct data 
-            types were used according to the schema rules.
-            
             These problems were solved by restructuring the layout using the responsive 
             grid system provided by the CSS framework. Media queries and responsive 
             classes were applied to adjust the layout depending on the screen size. 
@@ -143,11 +119,6 @@
     </security_discussion>
     
     <individual_comment>
-        This section of the project was completed individually. The task helped improve my 
-        understanding of XML structure, schema validation, and how data can be organised in a 
-        structured and machine-readable format. Through this work, I gained practical experience 
-        in validating XML files and ensuring that they conform to defined schema rules.
-        
         This part of the project was completed individually and focused on refactoring the 
         front-end of the application to make it responsive and improve the overall user 
         interface. Through this task, I developed a better understanding of responsive web 
