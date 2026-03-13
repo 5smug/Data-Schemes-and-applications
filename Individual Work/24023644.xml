@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<submission_xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="submission_schema.xsd">
+    <!-- 
+    This file is an example of a valid individual submission file. 
+    Note the schema file (XSD) pointed to on line 2/3 - TREAT THE SCHEMA AS READ ONLY
+    Use this example file as a template and fill with your own data 
+    validating as you go along using Oxygen or some other schema aware editor;
+	an on-line tool is here: https://www.liquid-technologies.com/online-xsd-validator
+    
+    DO NOT CHANGE ANY TAGS OR THEIR ORDER BUT ONLY THE CONTENT, OTHERWISE VALIDATION WILL FAIL
+    Keep the schema in the same directory as the document as that's where oXygen expects it.
+    -->    
+    <group id="Z"/>
+    <student id="99999999"/>
+    <!--- Describe one or more group tasks that you contributed to -->
+    <group_contribution>
+		Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum pretium. 
+        Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis. 
+        Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum  pretium. 
+        Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis. .... 
+     </group_contribution>
+    <!--- Describe your individual component -->
+    <individual_component type="Refactor the data set using XML and XML-Schema">
+        <description>Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum pretium. 
+            Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis. 
+            Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum  pretium. 
+            Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis. .... 
+        </description>
+        <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis lacinia
+            porttitor.Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+            pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis. ... 
+        </problems>
+        <solutions>Integer dictum diam id ligula aliquet sed dapibus nibh elementum. Pellentesque
+            augue mauris, lobortis vel elementum quis, consequat tempor felis..... 
+        </solutions>
+        <hours_effort>12</hours_effort>
+        <technologies>
+            <tech>php</tech>
+            <tech>javascript</tech>
+            <tech>xml</tech>
+        </technologies>
+        <source_files>
+            <file>
+                <name>flickr.php</name>
+                <purpose>to fetch flickr photos</purpose>
+            </file>
+            <file>
+                <name>index.html</name>
+                <purpose>main page with embedded photos</purpose>
+            </file>
+        </source_files>
+    </individual_component>
+    <security_discussion>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </security_discussion>
+    <individual_comment>This part was done by me and was even easier. It was all just so easy.
+        Surprisingly so. Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+        pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis.
+    </individual_comment>
+</submission_xml>
+<!-- DSA Individual XML File Example, 2025-6 -->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->
