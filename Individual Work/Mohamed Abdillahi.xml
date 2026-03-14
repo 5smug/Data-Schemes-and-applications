@@ -128,4 +128,4 @@
     
 </submission_xml>
 
-My part was to refactor the front-end to make the application more responsive across various screen sizes, so that the pages would be easier to use on mobile, tablet, and desktop without changing the main functionality of the website, such as the navigation bar, map sections, weather sections, places of interest cards, and general spacing, including the styling so that the content could adjust better depending on the width of the screen, using responsive CSS rules, and improving how sections were displayed when the screen became smaller, making the interface clearer, more organised, and easier for the user to interact with.
+Availability is another important aspect of the Parkerian Hexad. By rebuilding the front-end to be responsive, the software may be accessible on a range of devices, including desktop computers, tablets, and mobile phones. This improves availability since users can access and use the system on any device. Additionally, by ensuring that the software loads correctly and performs well on a range of screen sizes, responsive design improves usability and performance.
