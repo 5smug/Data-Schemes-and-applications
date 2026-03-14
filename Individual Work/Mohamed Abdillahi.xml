@@ -128,4 +128,10 @@
     
 </submission_xml>
 
-Another component of the Parkerian Hexad is availability, and rebuilding the front-end to be responsive can make the software available on a variety of devices, such as desktop computers, tablets, and mobile phones, thereby increasing availability, and also improving usability and performance by ensuring that the software loads properly and operates effectively on a variety of screen sizes.
+This part of the project was completed individually and focused on refactoring the 
+        front-end of the application to make it responsive and improve the overall user 
+        interface. Through this task, I developed a better understanding of responsive web 
+        design and how CSS frameworks can be used to create flexible layouts that adapt 
+        to different screen sizes. I also gained practical experience in improving website 
+        usability, organising page structure, and ensuring that the application provides a 
+        consistent user experience across desktop, tablet, and mobile devices.
