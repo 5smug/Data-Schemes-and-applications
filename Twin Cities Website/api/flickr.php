@@ -1,5 +1,5 @@
 <?php
-
+// Includes the config so that it can connect to the database.
 include_once '../config.php';
 
 if (isset($_GET['js']) && $_GET['js'] == '1') {
@@ -18,7 +18,7 @@ if (empty($place)) {
     exit;
 }
 
-// Sample photos
+// This creates the sample photos for the code.
 $photos = [
     [
         'id' => '1',
@@ -50,6 +50,7 @@ $photos = [
     ]
 ];
 
+// This calls the samples. If nothing is found, these are going to be called.
 echo json_encode([
     'source' => 'sample',
     'photos' => $photos
