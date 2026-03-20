@@ -21,7 +21,7 @@
         had to tweak the spacing a bit because things felt too cramped, but in the end we go there and finished it off.
      </group_contribution>
     <!--- Describe your individual component -->
-    <individual_component type="Build and integrate a photo widge">
+    <individual_component type="Build and integrate a photo widget">
         <description> So i Built a photo widget using the Unsplash API. I looked at both Flickr and Unsplash and chose Unsplash 
             for better photo quality and simpler implementation. The Widget displays 9 photos in a responsive grid 
             for London and New York. Features include loading skeletons, credits with photographer links, 
