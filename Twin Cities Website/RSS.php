@@ -24,7 +24,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     
 <channel>
     <!-- Before it gives the actual information about the cities and its places of interest, it gives this little points of information -->
-    <title>Twin Cities: London & New York RSS Feed</title>
+    <title>London & New York RSS Feed</title>
     <!-- The link is used to get back to index.php. You can use it directly -->
     <link>http://localhost/Tuesday/Twin%20Cities%20Website/index.php</link>
     <description>Information about our twin cities and places of interest</description>
