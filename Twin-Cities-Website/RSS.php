@@ -26,7 +26,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     <!-- Before it gives the actual information about the cities and its places of interest, it gives this little points of information -->
     <title>London & New York RSS Feed</title>
     <!-- The link is used to get back to index.php. You can use it directly -->
-    <link>http://localhost/Tuesday/Twin%20Cities%20Website/index.php</link>
+    <link>http://localhost/Tuesday/Twin-Cities-Website/index.php</link>
     <description>Information about our twin cities and places of interest</description>
     <language>en-gb</language>
 
@@ -39,7 +39,7 @@ foreach ($cities as $city) {
     echo "<item>";
     echo "<title>" . htmlspecialchars($city['Name']) . ", " . htmlspecialchars($city['Country']) . "</title>";
     echo "<description>" . htmlspecialchars($city['Weather']) . " | Population: " . number_format($city['Population']) . " | Currency: " . htmlspecialchars($city['Currency']) . "</description>";
-    echo "<link>http://localhost/Twin%20Cities%20Website/" . strtolower($city['Name']) . ".php</link>";
+    echo "<link>http://localhost/Tuesday/Twin-Cities-Website" . strtolower($city['Name']) . ".php</link>";
     echo "<guid>city-" . $city['City_ID'] . "</guid>";
     echo "<pubDate>" . date(DATE_RSS) . "</pubDate>";
     echo "</item>";
@@ -51,7 +51,7 @@ foreach ($cities as $city) {
             echo "<item>";
             echo "<title>" . htmlspecialchars($place['NameofLocation']) . " - " . htmlspecialchars($city['Name']) . "</title>";
             echo "<description>" . htmlspecialchars($place['Place_Description']) . " | Location: " . htmlspecialchars($place['StreetName']) . ", " . htmlspecialchars($place['Postcode']) . " | Coordinates: " . $place['Lat'] . ", " . $place['Lon'] . "</description>";
-            echo "<link>http://localhost/Twin%20Cities%20Website/" . strtolower($city['Name']) . ".php</link>";
+            echo "<link>http://localhost/Tuesday/Twin-Cities-Website/index.php" . strtolower($city['Name']) . ".php</link>";
             echo "<guid>place-" . $place['Place_of_InterestID'] . "</guid>";
             echo "<pubDate>" . date(DATE_RSS) . "</pubDate>";
             echo "</item>";
