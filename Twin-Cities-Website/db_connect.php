@@ -17,6 +17,6 @@ try {
 
 // In this part of the code, it makes it so that if XAMPP isn't opened, the page fails to load completly.
 
-// http://localhost/Tuesday/Twin%20Cities%20Website/index.php
+// http://localhost/Tuesday/Twin-Cities-Website/index.php
 
 ?>
