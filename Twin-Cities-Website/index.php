@@ -1,17 +1,13 @@
 <?php 
-
 include_once 'db_connect.php'; 
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Twin Cities Website</title>
-    <!-- CSS add-ons -->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Javascript add-ons -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/main.js"></script>
 </head>
@@ -43,5 +39,44 @@ include_once 'db_connect.php';
             <div class="weather-container" id="weather-nyc"></div>
         </section>
     </main>
+
+    <script>
+        // This function makes it so that it finds and displays the weather from assets/main.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Below is the information fetched for London weather. Appears on london.php as well
+            fetch('api/weather.php?city=london')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.temp) {
+                        var html = '<div class="weather-card">';
+                        html += '<div class="weather-temp">' + data.temp + '</div>';
+                        html += '<div class="weather-condition">' + data.conditions + '</div>';
+                        html += '<div class="weather-details">';
+                        html += '<div>💧 Humidity: ' + data.humidity + '</div>';
+                        html += '<div>🌬️ Wind: ' + data.wind + '</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        document.getElementById('weather-london').innerHTML = html;
+                    }
+                });
+            
+            // Below is the information fetched for NYC weather. Appears on nyc.php as well
+            fetch('api/weather.php?city=nyc')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.temp) {
+                        var html = '<div class="weather-card">';
+                        html += '<div class="weather-temp">' + data.temp + '</div>';
+                        html += '<div class="weather-condition">' + data.conditions + '</div>';
+                        html += '<div class="weather-details">';
+                        html += '<div>💧 Humidity: ' + data.humidity + '</div>';
+                        html += '<div>🌬️ Wind: ' + data.wind + '</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        document.getElementById('weather-nyc').innerHTML = html;
+                    }
+                });
+        });
+    </script>
 </body>
 </html>

@@ -1,19 +1,14 @@
 <?php 
-
 include_once 'db_connect.php'; 
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>London's Page</title>
-    <!-- CSS add-ons -->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Javascript add-ons -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/main.js"></script>
-    <!-- Flickr -->
     <script src="api/flickr.php?js=1"></script>
 </head>
 <body>
@@ -61,13 +56,7 @@ include_once 'db_connect.php';
                             <p><strong>Coordinates:</strong> <?= $place['Lat'] ?>, <?= $place['Lon'] ?></p>
                             
                             <!-- Flickr photos container -->
-                            <!-- <div id="flickr-<?= $place['Place_of_InterestID'] ?>" class="flickr-photos"></div>
-                            <script>
-                                // Load photos when the page loads
-                                if (typeof loadFlickrPhotos === 'function') {
-                                    loadFlickrPhotos('<?= $place['NameofLocation'] ?>', 'flickr-<?= $place['Place_of_InterestID'] ?>');
-                                }
-                            </script> -->
+                            <div id="flickr-<?= $place['Place_of_InterestID'] ?>" class="flickr-photos" data-place="<?= $place['NameofLocation'] ?>"></div>
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -75,5 +64,12 @@ include_once 'db_connect.php';
             </div>
         </section>
     </main>
+
+    <script>
+        // This function makes it so that it finds and displays the weather from assets/main.js, same as index.php but less advanced and quicker.
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWeatherForCity('London', 'weather-display');
+        });
+    </script>
 </body>
 </html>

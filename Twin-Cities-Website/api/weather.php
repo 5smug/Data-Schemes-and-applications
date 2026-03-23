@@ -1,122 +1,76 @@
 <?php
-
-include_once '../db_connect.php';
-
+include_once '../config.php';
 header('Content-Type: application/json');
 
-$weatherData = [
-    // London Weather Location
-    'Big Ben' => [
-        'temp' => '15°C',
-        'conditions' => 'Partly cloudy',
-        'humidity' => '72%',
-        'wind' => '3.1 m/s',
-        'icon' => '⛅'
-    ],
-    'Tower Bridge' => [
-        'temp' => '14°C',
-        'conditions' => 'Light rain',
-        'humidity' => '78%',
-        'wind' => '4.2 m/s',
-        'icon' => '🌧️'
-    ],
-    'Buckingham Palace' => [
-        'temp' => '15°C',
-        'conditions' => 'Partly cloudy',
-        'humidity' => '71%',
-        'wind' => '3.0 m/s',
-        'icon' => '⛅'
-    ],
-    'London Eye' => [
-        'temp' => '15°C',
-        'conditions' => 'Cloudy',
-        'humidity' => '73%',
-        'wind' => '3.5 m/s',
-        'icon' => '☁️'
-    ],
-    'Natural History Museum' => [
-        'temp' => '14°C',
-        'conditions' => 'Light rain',
-        'humidity' => '76%',
-        'wind' => '3.8 m/s',
-        'icon' => '🌧️'
-    ],
-    'Tower of London' => [
-        'temp' => '14°C',
-        'conditions' => 'Cloudy',
-        'humidity' => '74%',
-        'wind' => '3.2 m/s',
-        'icon' => '☁️'
-    ],
+function getWeatherForCity($city, $countryCode) {
+    $url = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "," . $countryCode . "&units=metric&appid=" . WEATHER_API_KEY;
     
-    // NYC Weather Location
-    'Statue of Liberty' => [
-        'temp' => '18°C',
-        'conditions' => 'Sunny',
-        'humidity' => '60%',
-        'wind' => '2.5 m/s',
-        'icon' => '☀️'
-    ],
-    'Central Park' => [
-        'temp' => '17°C',
-        'conditions' => 'Sunny',
-        'humidity' => '62%',
-        'wind' => '2.3 m/s',
-        'icon' => '☀️'
-    ],
-    'Empire State Building' => [
-        'temp' => '18°C',
-        'conditions' => 'Sunny',
-        'humidity' => '59%',
-        'wind' => '2.8 m/s',
-        'icon' => '☀️'
-    ],
-    'The High Line' => [
-        'temp' => '17°C',
-        'conditions' => 'Partly cloudy',
-        'humidity' => '64%',
-        'wind' => '2.6 m/s',
-        'icon' => '⛅'
-    ],
-    'Madison Square Garden' => [
-        'temp' => '18°C',
-        'conditions' => 'Sunny',
-        'humidity' => '61%',
-        'wind' => '2.4 m/s',
-        'icon' => '☀️'
-    ],
-    'The Metropolitan Museum of Art' => [
-        'temp' => '17°C',
-        'conditions' => 'Partly cloudy',
-        'humidity' => '63%',
-        'wind' => '2.2 m/s',
-        'icon' => '⛅'
-    ]
-];
-
-// Pull all the places from the database
-$places = $pdo->query("SELECT p.*, c.Name as city_name FROM place_of_interest p JOIN city c ON p.City_ID = c.City_ID")->fetchAll();
-
-$result = [];
-foreach ($places as $place) {
-    $name = $place['NameofLocation'];
-    $result[] = [
-        'place_id' => $place['Place_of_InterestID'],
-        'place_name' => $name,
-        'city' => $place['city_name'],
-        'weather' => $weatherData[$name] ?? [
-            'temp' => $place['city_name'] == 'London' ? '15°C' : '18°C',
-            'conditions' => $place['city_name'] == 'London' ? 'Cloudy' : 'Sunny',
-            'humidity' => '70%',
-            'wind' => '3.0 m/s',
-            'icon' => $place['city_name'] == 'London' ? '☁️' : '☀️'
-        ],
-        'coordinates' => [
-            'lat' => $place['Lat'],
-            'lon' => $place['Lon']
-        ]
-    ];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    if ($response !== false && $httpCode == 200) {
+        $data = json_decode($response, true);
+        if (isset($data['main'])) {
+            return [
+                'temp' => round($data['main']['temp']) . '°C',
+                'conditions' => ucfirst($data['weather'][0]['description']),
+                'humidity' => $data['main']['humidity'] . '%',
+                'wind' => round($data['wind']['speed'], 1) . ' m/s',
+                'icon' => getWeatherIcon($data['weather'][0]['icon'])
+            ];
+        }
+    }
+    
+    // Fallback data if API fails
+    if (strtolower($city) == 'london') {
+        return [
+            'temp' => '14°C',
+            'conditions' => 'Cloudy',
+            'humidity' => '72%',
+            'wind' => '3.1 m/s',
+            'icon' => '☁️'
+        ];
+    } else {
+        return [
+            'temp' => '17°C',
+            'conditions' => 'Sunny',
+            'humidity' => '60%',
+            'wind' => '2.5 m/s',
+            'icon' => '☀️'
+        ];
+    }
 }
 
-echo json_encode($result, JSON_PRETTY_PRINT);
+function getWeatherIcon($iconCode) {
+    $icons = [
+        '01d' => '☀️', '01n' => '🌙',
+        '02d' => '⛅', '02n' => '☁️',
+        '03d' => '☁️', '03n' => '☁️',
+        '04d' => '☁️', '04n' => '☁️',
+        '09d' => '🌧️', '09n' => '🌧️',
+        '10d' => '🌦️', '10n' => '🌧️',
+        '11d' => '⛈️', '11n' => '⛈️',
+        '13d' => '❄️', '13n' => '❄️',
+        '50d' => '🌫️', '50n' => '🌫️'
+    ];
+    return $icons[$iconCode] ?? '☀️';
+}
+
+$city = isset($_GET['city']) ? $_GET['city'] : '';
+
+if ($city == 'london') {
+    echo json_encode(getWeatherForCity('London', 'uk'));
+} elseif ($city == 'nyc') {
+    echo json_encode(getWeatherForCity('New York', 'us'));
+} else {
+    echo json_encode([
+        'london' => getWeatherForCity('London', 'uk'),
+        'nyc' => getWeatherForCity('New York', 'us')
+    ]);
+}
 ?>
