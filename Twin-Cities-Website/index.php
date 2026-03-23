@@ -59,7 +59,7 @@ include_once 'db_connect.php';
                         document.getElementById('weather-london').innerHTML = html;
                     }
                 });
-            
+
             // Below is the information fetched for NYC weather. Appears on nyc.php as well
             fetch('api/weather.php?city=nyc')
                 .then(function(response) { return response.json(); })

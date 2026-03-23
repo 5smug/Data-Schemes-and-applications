@@ -45,6 +45,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Creates the menu for the button. This is also called in javascript to make the button have a solid view once they are chosen */
 .nav-menu { 
     display: flex; 
     list-style: none; 
@@ -106,14 +107,17 @@ body {
     z-index: 1;
 }
 
+/* Makes it so that everything is spread out, creating spacing for the entire section */
 .weather-section {
     margin: 32px 0;
 }
 
+/* Adds a little bit more spacing, and creates a container so that everything stays into one place */
 .weather-container {
     margin: 16px 0;
 }
 
+/* Creates the weather display card, by the dark blue colour, and a easy gradient with a border to help weather-container hold information */
 .weather-card { 
     background: linear-gradient(135deg, #1E3A6F, #0A1A33);
     color: white; 
@@ -123,19 +127,21 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* Styles the temperature number so that it stands out the most */
 .weather-temp { 
     font-size: 48px; 
     font-weight: bold; 
     color: #FFD700; 
 }
 
+/* Styles the weather so that it can also stand out as much as the temperature. It also capitalizes the text, so no mather how you type it, the start its capitalized */
 .weather-condition {
     font-size: 19px;
     text-transform: capitalize;
     margin: 8px 0;
 }
 
-/* This is a weather grid, mostly a sub-grid for the humidity, wind speed, and more of that nature */
+/* This is where the humidity/ wind speed and other metrics are being displayed. Creates a responsive column as well */
 .weather-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -145,6 +151,7 @@ body {
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
+/* This was made to help view if the data is from live API or regular data */
 .weather-source {
     text-align: right;
     font-size: 13px;
@@ -153,11 +160,12 @@ body {
     font-style: italic;
 }
 
+/* Adds a lot of spacing around the places of interest section in london.php and nyc.php */
 .places-section {
     margin: 48px 0;
 }
 
-/* */
+/* Styles the heading, making it stand out */
 .places-section h2 {
     color: #FFD700;  
     margin-bottom: 24px;
@@ -176,6 +184,7 @@ body {
     background: #D52B1E; 
 }
 
+/* This makes the grid for places of interest responsive */
 .places-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
@@ -293,6 +302,23 @@ h1:after {
     margin-bottom: 8px;
 }
 
+/* Custom Leaflet popup styling for map markers */
+.custom-popup .leaflet-popup-content-wrapper {
+    background: #1E1E1E;
+    border-radius: 8px;
+    border-left: 3px solid #D52B1E;
+    padding: 0;
+}
+
+.custom-popup .leaflet-popup-tip {
+    background: #1E1E1E;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 12px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
 /* RSS link */
 a[href*="feed.php"] {
     background: #FFD700;
@@ -361,6 +387,123 @@ a[href*="feed.php"]:hover {
 @media (max-width: 768px) {
     .flickr-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Image container for place photos. This shown */
+.place-image-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #D52B1E;
+}
+
+.place-image-container h4 {
+    color: #FFD700;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.place-main-image {
+    width: 100%;
+    max-height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #0A0A0A;
+    border: 2px solid #D52B1E;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.place-main-image img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    display: block;
+    background: #0A0A0A;
+}
+
+.place-main-image:hover {
+    border-color: #FFD700;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(213, 43, 30, 0.3);
+}
+
+/* Flickr grid inside place details */
+.place-details .flickr-grid {
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.place-details .flickr-thumb {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.place-details .flickr-thumb:hover {
+    transform: scale(1.05);
+    border-color: #D52B1E;
+}
+
+/* Map popup styling */
+.place-popup {
+    min-width: 180px;
+    padding: 5px;
+}
+
+.place-popup h4 {
+    color: #FFD700;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D52B1E;
+}
+
+.place-popup p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #DDD;
+}
+
+.place-popup p strong {
+    color: #FFD700;
+}
+
+.place-popup-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 12px;
+    background: #D52B1E;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background 0.2s ease;
+}
+
+.place-popup-btn:hover {
+    background: #A52016;
+}
+
+/* Responsive adjustments for images and popups */
+@media (max-width: 768px) {
+    .place-main-image {
+        max-height: 250px;
+    }
+    
+    .place-main-image img {
+        max-height: 250px;
+    }
+    
+    .place-details .flickr-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .place-popup {
+        min-width: 150px;
     }
 }
 

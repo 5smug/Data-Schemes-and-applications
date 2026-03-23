@@ -67,8 +67,27 @@ include_once 'db_connect.php';
 
     <script>
         // This function makes it so that it finds and displays the weather from assets/main.js, same as index.php but less advanced and quicker.
-        document.addEventListener('DOMContentLoaded', function() {
-            loadWeatherForCity('New York', 'weather-display');
+        window.addEventListener('load', function() {
+            if (typeof loadWeatherForCity === 'function') {
+                loadWeatherForCity('New York', 'weather-display');
+            } else {
+                fetch('api/weather.php?city=nyc')
+                    .then(function(response) { return response.json(); })
+                    .then(function(data) {
+                        if (data.temp) {
+                            var container = document.getElementById('weather-display');
+                            var html = '<div class="weather-card">';
+                            html += '<div class="weather-temp">' + data.temp + '</div>';
+                            html += '<div class="weather-condition">' + data.conditions + '</div>';
+                            html += '<div class="weather-details">';
+                            html += '<div>💧 Humidity: ' + data.humidity + '</div>';
+                            html += '<div>🌬️ Wind: ' + data.wind + '</div>';
+                            html += '</div>';
+                            html += '</div>';
+                            container.innerHTML = html;
+                        }
+                    });
+            }
         });
     </script>
 </body>

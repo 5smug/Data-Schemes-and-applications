@@ -55,7 +55,7 @@ include_once 'db_connect.php';
                             <p><strong>Description:</strong> <?= $place['Place_Description'] ?></p>
                             <p><strong>Coordinates:</strong> <?= $place['Lat'] ?>, <?= $place['Lon'] ?></p>
                             
-                            <!-- Flickr photos container -->
+                            <!-- Flickr photos container - this handles all images -->
                             <div id="flickr-<?= $place['Place_of_InterestID'] ?>" class="flickr-photos" data-place="<?= $place['NameofLocation'] ?>"></div>
                         </div>
                     </div>
@@ -66,9 +66,24 @@ include_once 'db_connect.php';
     </main>
 
     <script>
-        // This function makes it so that it finds and displays the weather from assets/main.js, same as index.php but less advanced and quicker.
-        document.addEventListener('DOMContentLoaded', function() {
-            loadWeatherForCity('London', 'weather-display');
+        // This function makes it so that it finds and displays the weather from assets/main.js, same as index.php but less advanced and quicker
+        window.addEventListener('load', function() {
+            fetch('api/weather.php?city=london')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.temp) {
+                        var container = document.getElementById('weather-display');
+                        var html = '<div class="weather-card">';
+                        html += '<div class="weather-temp">' + data.temp + '</div>';
+                        html += '<div class="weather-condition">' + data.conditions + '</div>';
+                        html += '<div class="weather-details">';
+                        html += '<div>💧 Humidity: ' + data.humidity + '</div>';
+                        html += '<div>🌬️ Wind: ' + data.wind + '</div>';
+                        html += '</div>';
+                        html += '</div>';
+                        container.innerHTML = html;
+                    }
+                });
         });
     </script>
 </body>

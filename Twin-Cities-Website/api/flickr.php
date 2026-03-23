@@ -1,7 +1,10 @@
 <?php
+
 include_once '../config.php';
 
-// If JavaScript is requested, output JavaScript
+// This makes it so that if javascript is requested, the code below is outputed.
+// This was created because when I tried to implemented it the main.js file, it was giving an error, and I kept trying to fix it but I ended up giving up for this.
+// I used: https://www.w3resource.com/API/flickr/tutorial.php and https://www.youtube.com/watch?v=iGlaFjVxsvE to create an idea.
 if (isset($_GET['js']) && $_GET['js'] == '1') {
     header('Content-Type: application/javascript');
     ?>
@@ -9,10 +12,8 @@ if (isset($_GET['js']) && $_GET['js'] == '1') {
         var container = document.getElementById(containerId);
         if (!container) return;
         
-        // Show loading message
         container.innerHTML = '<div class="flickr-loading">📸 Loading photos...</div>';
         
-        // Call the API to get photos
         fetch('api/flickr.php?place=' + encodeURIComponent(placeName))
             .then(function(response) {
                 return response.json();
@@ -44,7 +45,6 @@ if (isset($_GET['js']) && $_GET['js'] == '1') {
             });
     }
 
-    // Auto-load when page is ready
     document.addEventListener('DOMContentLoaded', function() {
         var containers = document.querySelectorAll('.flickr-photos');
         for (var i = 0; i < containers.length; i++) {
@@ -56,12 +56,10 @@ if (isset($_GET['js']) && $_GET['js'] == '1') {
             }
         }
     });
-    ?>
     <?php
     exit;
 }
 
-// Return JSON data for a specific place
 header('Content-Type: application/json');
 
 $place = isset($_GET['place']) ? $_GET['place'] : '';
@@ -70,18 +68,41 @@ if (empty($place)) {
     exit;
 }
 
-// Convert place name to filename (lowercase, spaces to dashes)
+// This code creates it so that it can read the png file. It reads if there is a blank space, a - or .png. 
+// If it doesn't find it, it won't load, as is supposed to. It loads everything from line 75 to 86, if it can be found as the same name in images/
 $filename = strtolower(str_replace(' ', '-', $place)) . '.png';
+$specialCases = [
+    'big ben' => 'Big ben.png',
+    'buckingham palace' => 'Buckingham Palace.png',
+    'central park' => 'Central Park.png',
+    'empire state building' => 'Empire State Building.png',
+    'london eye' => 'London Eye.png',
+    'madison square garden' => 'Madison Square Garden.png',
+    'natural history museum' => 'Natural History Museum.png',
+    'statue of liberty' => 'Statue of Liberty.png',
+    'the high line' => 'The High Line.png',
+    'the metropolitan museum of art' => 'The Metropolitan Museum of Art.png',
+    'tower bridge' => 'tower bridge.png',
+    'tower of london' => 'Tower of London.png'
+];
+
+$placeLower = strtolower($place);
+if (isset($specialCases[$placeLower])) {
+    $filename = $specialCases[$placeLower];
+}
+
+// This is for the path, index.php and others couldn't find it normally so this had to be added.
 $imagePath = 'images/' . $filename;
 
-// Check if the image exists
-if (file_exists($imagePath)) {
-    // Image exists, return it
+// This function below checks for the existence of the image. If this doesn't exist, it returns it.
+$fullPath = __DIR__ . '/' . $imagePath;
+if (file_exists($fullPath)) {
+    // This part returns it
     $photos = [
         [
             'id' => '1',
             'title' => $place,
-            'url_sq' => $imagePath,
+            'url_sq' => 'api/' . $imagePath,
             'owner' => 'local'
         ]
     ];
@@ -90,10 +111,11 @@ if (file_exists($imagePath)) {
         'photos' => $photos
     ]);
 } else {
-    // No image found, return empty array
+    // If no image was found, show empty tray
     echo json_encode([
         'source' => 'empty',
         'photos' => []
     ]);
 }
+
 ?>
