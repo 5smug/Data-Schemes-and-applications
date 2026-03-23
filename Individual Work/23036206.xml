@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<submission_xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="submission_schema.xsd">
+    <!-- 
+    This file is an example of a valid individual submission file. 
+    Note the schema file (XSD) pointed to on line 2/3 - TREAT THE SCHEMA AS READ ONLY
+    Use this example file as a template and fill with your own data 
+    validating as you go along using Oxygen or some other schema aware editor;
+	an on-line tool is here: https://www.liquid-technologies.com/online-xsd-validator
+    
+    DO NOT CHANGE ANY TAGS OR THEIR ORDER BUT ONLY THE CONTENT, OTHERWISE VALIDATION WILL FAIL
+    Keep the schema in the same directory as the document as that's where oXygen expects it.
+    -->    
+    <group id="L"/>
+    <student id="23036206"/>
+    <!--- Describe one or more group tasks that you contributed to -->
+    <group_contribution>
+        I contributed to Component 1 by helping design the ER models used for the database. 
+        I worked with the group to identify the main entities such as cities and places of interest,
+        decideon their attributes, and plan the relationships between them. I also helped plan the SQL
+        layout for the database tables so the data could be organised and queried efficiently in MySQL. 
+        In addition, I supported the RSS feature by helping with the rss.php file and assisting with how 
+        the data from the database would be retrieved and structured into an RSS feed for the application.
+     </group_contribution>
+    <!--- Describe your individual component -->
+    <individual_component type="Refactor the front-end to be responsive">
+        <description>
+            My part was to refactor the front-end to make the application more responsive across various screen sizes,
+            so that the pages would be easier to use on mobile, tablet, and desktop without changing the main functionality of the website,
+            such as the navigation bar, map sections, weather sections, places of interest cards, and general spacing, including the styling
+            so that the content could adjust better depending on the width of the screen, using responsive CSS rules, and improving how 
+            sections were displayed when the screen became smaller, making the interface clearer, more organised, and easier
+            for the user to interact with.
+        </description>
+        <problems>  
+            One of the main challenges was adapting the existing layout so that it worked 
+            correctly on different screen sizes. Some elements did not align properly when 
+            viewed on smaller devices, and certain components needed to be reorganised 
+            using responsive grid systems. Another issue was ensuring that styling from 
+            the new CSS framework did not conflict with the existing styles in the project. 
+        </problems>
+        <solutions> 
+            These problems were solved by restructuring the layout using the responsive 
+            grid system provided by the CSS framework. Media queries and responsive 
+            classes were applied to adjust the layout depending on the screen size. 
+            Conflicting styles were resolved by reviewing the CSS structure and applying 
+            consistent styling rules across the application.
+        </solutions>
+        <hours_effort>12</hours_effort>
+        <technologies>
+            <tech>php</tech>
+            <tech>html5</tech>
+        </technologies>
+        <source_files>
+            <file>
+                <name>index.php</name>
+                <purpose>Main page where Bootstrap classes were applied to create a responsive layout</purpose>
+            </file>
+            <file>
+                <name>style.css</name>
+                <purpose>Custom styling used alongside the CSS framework to improve the design</purpose>
+            </file>
+        </source_files>
+        
+    </individual_component>
+    
+    <security_discussion> 
+        External data sources and web-based technologies required security considerations,
+        and malformed XML files had to be validated to ensure that they were not processed.
+        Server-side scripts should always be validated and sanitised to reduce risks of injection attacks,
+        and access permissions and secure data handling practices should ensure that sensitive information
+        is handled securely and that the system operates safely. 
+        
+        Data security is an important consideration when developing web applications. 
+        The Parkerian Hexad identifies six attributes that define information security. 
+        In the development of our group application, several of these attributes were 
+        considered, particularly in relation to the refactoring of the front-end to 
+        create a responsive and accessible user interface.
+        
+        Confidentiality refers to protecting information from unauthorised access. 
+        While the responsive front-end mainly focuses on user interface design, it 
+        still plays a role in protecting sensitive information by ensuring that data 
+        is displayed appropriately across different devices. Responsive layouts help 
+        prevent sensitive content from being accidentally exposed or displayed 
+        incorrectly on smaller screens, which could otherwise make information easier 
+        to view by unintended users.
+        
+        Integrity ensures that information remains accurate and is not modified in an 
+        unauthorised way. In the application, integrity can be supported through proper 
+        input validation and structured data handling. When refactoring the front-end, 
+        form elements and user inputs were organised using consistent layout structures, 
+        helping to ensure that data entered by users follows the expected format before 
+        being processed by the system.
+        
+       
+       Another component of the Parkerian Hexad is availability, and rebuilding the front-end to
+       be responsive can make the software available on a variety of devices, such as desktop computers,
+       tablets, and mobile phones, thereby increasing availability, and also improving usability and performance
+       by ensuring that the software loads properly and operates effectively on a variety of screen sizes.
+        
+        By considering these aspects of the Parkerian Hexad during development, the 
+        application becomes more secure, reliable, and accessible to users across 
+        multiple platforms.
+    </security_discussion>
+    <individual_comment> 
+        For this section, you completed this portion of the project individually and refactored the front-end of the
+        application to make it responsive and enhance the user interface, which gave me a deeper understanding of responsive
+        web design and how CSS frameworks can be used to create flexible layouts that respond to various screen sizes, as well
+        as practical experience in optimizing the usability of a website, structuring the pages, and ensuring that the application
+        delivers a consistent user experience across desktop, tablet, and mobile platforms
+       
+     </individual_comment> 
+</submission_xml>
+<!-- DSA Individual XML File Example, 2025-6 -->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->
