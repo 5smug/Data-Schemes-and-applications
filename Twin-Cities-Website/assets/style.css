@@ -390,7 +390,8 @@ a[href*="feed.php"]:hover {
     }
 }
 
-/* Image container for place photos. This shown */
+/* Image container for place photos. This makes the images show right below the description and coordonates (lat + lon) */
+/* Everything that has to do with place-image makes sure the image stays in place as explained right above this text */
 .place-image-container {
     margin-top: 20px;
     padding-top: 15px;
