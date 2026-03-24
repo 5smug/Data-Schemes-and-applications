@@ -7,7 +7,7 @@ $db_name = DB_NAME;
 $db_user = DB_USER;
 $db_pass = DB_PASS;
 
-try {
+try { // tries to connect to the database using information from config.php
     $pdo = new PDO(
         "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );

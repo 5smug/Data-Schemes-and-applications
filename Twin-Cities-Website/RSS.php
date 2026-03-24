@@ -1,6 +1,8 @@
 <?php
 
-// Finds and connects to localhost via db_connect
+// Finds and connects to localhost via db_connect, shown in the layout files
+// Although this itself isn't a file that can be viewed, I had to connect to the database so that it can output the correct information
+// Some of the information outputed comes from the actual database
 include_once 'db_connect.php';
 
 header("Content-Type: application/rss+xml; charset=UTF-8");
@@ -11,6 +13,7 @@ $cities = $pdo->query("SELECT * FROM city")->fetchAll();
 // Get all places
 $places = $pdo->query("SELECT * FROM place_of_interest")->fetchAll();
 
+// Gets all places of interest by city and puts them in order
 $placesByCity = [];
 foreach ($places as $place) {
     $placesByCity[$place['City_ID']][] = $place;

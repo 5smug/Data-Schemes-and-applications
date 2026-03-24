@@ -256,6 +256,7 @@ body {
     cursor: pointer;
 }
 
+/* Creates a hover when you hold your mouse over said button */
 .btn:hover {
     background: #A52016;
     transform: translateY(-2px);
@@ -319,7 +320,7 @@ h1:after {
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* RSS link */
+/* RSS link, before and after downloading the file */
 a[href*="feed.php"] {
     background: #FFD700;
     color: #121212 !important;
@@ -449,7 +450,7 @@ a[href*="feed.php"]:hover {
     border-color: #D52B1E;
 }
 
-/* Map popup styling */
+/* Map popup styling, for javascript */
 .place-popup {
     min-width: 180px;
     padding: 5px;

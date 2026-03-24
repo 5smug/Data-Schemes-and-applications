@@ -2,7 +2,7 @@
 Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applications
 
 # ER Models
-- Conceptual (Not done, redo)
+- Conceptual (Done)
 - Logical (Done)
 
 # Individual work
@@ -15,7 +15,7 @@ Team with Adrian, Muhammed and Hamza for Tuesday -> Data, Schemes and applicatio
 
 
 # Twin cities Website
-- Making it so that when you type a marker, it gives you information, check guidance
+- Done
 
 # RSS
 - Done

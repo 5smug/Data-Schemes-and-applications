@@ -49,8 +49,7 @@ INSERT INTO city (Name, Country, Population, Weather, Currency, Lon, Lat) VALUES
 ('New York City', 'United States', 8419000, 'Sunny', 'Dollars ($)', -74.0060, 40.7128);
 
 -- London Places of Interest (The postal code, description and others were taken from gemini.google -> referenced)
-INSERT INTO place_of_interest (StreetName, Postcode, NameofLocation, Lon, Lat, Place_Description, City_ID)
-VALUES
+INSERT INTO place_of_interest (StreetName, Postcode, NameofLocation, Lon, Lat, Place_Description, City_ID) VALUES
 ('Westminster', 'SW1A 0AA', 'Big Ben', -0.1246, 51.5007, 'Famous clock tower and symbol of London', 1),
 ('Bankside', 'SE1 9TG', 'Tower Bridge', -0.0754, 51.5055, 'Iconic combined bascule and suspension bridge', 1),
 ('Westminster', 'SW1A 1AA', 'Buckingham Palace', -0.1419, 51.5014, 'Official residence of the British monarch', 1),
@@ -59,8 +58,7 @@ VALUES
 ('Tower Hill', 'EC3N 4AB', 'Tower of London', -0.0754, 51.5081, 'Historic castle and UNESCO World Heritage Site', 1);
 
 -- New York City Places of Interest (The postal code, description and others were taken from gemini.google -> referenced)
-INSERT INTO place_of_interest (StreetName, Postcode, NameofLocation, Lon, Lat, Place_Description, City_ID)
-VALUES
+INSERT INTO place_of_interest (StreetName, Postcode, NameofLocation, Lon, Lat, Place_Description, City_ID) VALUES
 ('Liberty Island', 'NY 10004', 'Statue of Liberty', -74.0445, 40.6892, 'Iconic symbol of freedom and democracy', 2),
 ('Central Park', 'NY 10024', 'Central Park', -73.9665, 40.7812, 'Urban park in Manhattan', 2),
 ('350 5th Ave', 'NY 10118', 'Empire State Building', -73.9857, 40.7484, 'Famous 102-story skyscraper', 2),
@@ -68,8 +66,7 @@ VALUES
 ('West 34th Street', 'NY 10001', 'Madison Square Garden', -73.9936, 40.7505, 'Famous sports and entertainment venue', 2),
 ('63rd Street', 'NY 10065', 'The Metropolitan Museum of Art', -73.9626, 40.7794, 'Largest art museum in the US', 2); 
 
-INSERT INTO news (Headline, Link, Body, City_ID, PublishTime)
-VALUES 
 -- This information is gathered from other sources, such as Google.com/search (google.ai, referenced as gemini)
+INSERT INTO news (Headline, Link, Body, City_ID, PublishTime) VALUES 
 ('London Announces New Cultural Festival', 'https://example.com/london-festival', 'London will host a month-long cultural festival starting next month featuring music, art, and food from around the world.', 1, NOW()),
 ('NYC Launches Sustainable Transport Initiative', 'https://example.com/nyc-transport', 'New York City announces major investment in cycling infrastructure and electric buses.', 2, NOW());
