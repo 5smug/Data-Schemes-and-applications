@@ -34,14 +34,6 @@ CREATE TABLE IF NOT EXISTS news (
     FOREIGN KEY (City_ID) REFERENCES city(City_ID) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS flickr_photos (
-    PhotoID INT PRIMARY KEY AUTO_INCREMENT,
-    PlaceName VARCHAR(100),
-    FlickrID VARCHAR(100), 
-    PhotoURL VARCHAR(255),  
-    LastUpdated DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
 INSERT INTO city (Name, Country, Population, Weather, Currency, Lon, Lat) VALUES 
 ('London', 'United Kingdom', 8982000, 'Partly cloudy', 'Pounds (£)', -0.1278, 51.5074);
 
@@ -68,5 +60,7 @@ INSERT INTO place_of_interest (StreetName, Postcode, NameofLocation, Lon, Lat, P
 
 -- This information is gathered from other sources, such as Google.com/search (google.ai, referenced as gemini)
 INSERT INTO news (Headline, Link, Body, City_ID, PublishTime) VALUES 
-('London Announces New Cultural Festival', 'https://example.com/london-festival', 'London will host a month-long cultural festival starting next month featuring music, art, and food from around the world.', 1, NOW()),
-('NYC Launches Sustainable Transport Initiative', 'https://example.com/nyc-transport', 'New York City announces major investment in cycling infrastructure and electric buses.', 2, NOW());
+-- The news information was taken from one if not the first search from google, this aren't used for anything in the actual website
+-- News are basic, and although it was made as a example.com link so that it's easy, decided to change it to the following:
+('Announces New Festivals in London', 'https://www.skiddle.com/festivals/cities/london/', 'London will host a month-long cultural festival starting next month featuring music, art, and food from around the world.', 1, NOW()),
+('NYC Launches Sustainable Transport Initiative', 'https://www.iru.org/news-resources/newsroom/road-sustainable-transport', 'New York City announces major investment in cycling infrastructure and electric buses.', 2, NOW());
